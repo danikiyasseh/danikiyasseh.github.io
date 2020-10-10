@@ -51,7 +51,6 @@ body {
 @import url(https://fonts.googleapis.com/css?family=Open+Sans:400italic);
 blockquote:nth-child(1){
   font-size: 1em;
-  width:80%;
   margin:10px auto;
   font-family:Open Sans;
   font-style:italic;
@@ -65,7 +64,6 @@ blockquote:nth-child(1){
 
 blockquote:nth-child(2){
   font-size: 1em;
-  width:80%;
   margin:10px auto;
   font-family:Open Sans;
   font-style:italic;
