@@ -55,7 +55,7 @@ blockquote:nth-child(1){
   font-family:Open Sans;
   font-style:italic;
   color: #555555;
-  padding:1.2em 50px 1.2em 30px;
+  padding:1.2em 60px 1.2em 30px;
   border-right:8px solid #78A0C8 ;
   line-height:1.6;
   position: relative;
@@ -81,7 +81,7 @@ blockquote:nth-child(1):before{
   color:#78A0C8;
   font-size:3em;
   position: absolute;
-  right: 10px;
+  right: 20px;
   top: 0px;
 }
 
