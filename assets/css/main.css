@@ -4414,7 +4414,7 @@
 			input[type="submit"]:hover,
 			input[type="reset"]:hover,
 			.button:hover {
-				background-color: #BE006B;
+				background-color: #3090C7;
 			}
 			
 			input[type="button"]:active,
@@ -4431,7 +4431,7 @@
 				background-color: transparent;  
 				/*transparent;*/
 				border: solid 2px #e5e6e7;
-				color: #BE006B;
+				color: #3090C7;
 			}
 
 				input[type="button"].style2:hover,
