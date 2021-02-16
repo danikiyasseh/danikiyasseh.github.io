@@ -3544,7 +3544,7 @@
 	}
 
 		#banner video {
-			display: -moz-flex;
+/* 			display: -moz-flex;
 			display: -webkit-flex;
 			display: -ms-flex;
 			display: flex;
@@ -3556,12 +3556,11 @@
 			-webkit-justify-content: center;
 			-ms-justify-content: center;
 			justify-content: center;
-			cursor: default;
-			height: 100vh;
-			min-height: 35em;
+			cursor: default; */
+			height: auto;
+			width: 100%; 
 			overflow: hidden;
 			position: relative;
-			text-align: center;
 		}
 
 		#banner h2 {
