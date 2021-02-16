@@ -3676,21 +3676,21 @@
 			opacity: 0;
 		}
 
-		@media (min-aspect-ratio: 16/9) {
+		@media screen and (max-width: 980px) {
 			
 		    #myVideo {
-			width:100%;
-			height: auto;
+			width:auto;
+			height: 100%;
 			     }
 		}
 
-		@media (max-aspect-ratio: 16/9) {
+/* 		@media (max-aspect-ratio: 16/9) {
 			
 		    #myVideo { 
 			width:auto;
 			height: 100%;
 			     }
-		}
+		} */
 
 		@media screen and (max-width: 736px) {
 
