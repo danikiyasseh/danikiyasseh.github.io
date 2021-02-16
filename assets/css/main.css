@@ -3490,13 +3490,35 @@
 
 /* Banner */
 
-	#myVideo {
+/* 	#myVideo {
 	  position: relative;
 	  right: 0;
 	  bottom: 0;
 	  min-width: 100%; 
 	  min-height: 100%;
 	  z-index: 0;
+	} */
+
+	#myVideo {
+		display: -moz-flex;
+		display: -webkit-flex;
+		display: -ms-flex;
+		display: flex;
+		-moz-flex-direction: column;
+		-webkit-flex-direction: column;
+		-ms-flex-direction: column;
+		flex-direction: column;
+		-moz-justify-content: center;
+		-webkit-justify-content: center;
+		-ms-justify-content: center;
+		justify-content: center;
+		cursor: default;
+		height: 100vh;
+		min-height: 35em;
+		overflow: hidden;
+		position: relative;
+		text-align: center;
+/* 		z-index: 9999; */
 	}
 
 	#banner {
