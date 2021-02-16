@@ -3544,7 +3544,7 @@
 			opacity: 1;
 			padding: 0.35em 1em;
 			position: relative;
-			z-index: 1;
+			z-index: 9999;
 		}
 
 			#banner h2:before, #banner h2:after {
@@ -3611,7 +3611,7 @@
 			text-align: center;
 			text-transform: uppercase;
 			width: 16em;
-			z-index: 1;
+			z-index: 9999;
 		}
 
 			#banner .more:after {
