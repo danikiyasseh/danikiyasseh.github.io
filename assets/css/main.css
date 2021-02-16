@@ -3519,6 +3519,14 @@
 		text-align: center;
 	}
 
+/* 		#banner video {
+		  position: fixed;
+		  right: 0;
+		  bottom: 0;
+		  min-width: 100%; 
+		  min-height: 100%;
+		} */
+
 		#banner h2 {
 			-moz-transform: scale(1);
 			-webkit-transform: scale(1);
