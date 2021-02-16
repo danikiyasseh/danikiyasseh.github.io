@@ -3490,13 +3490,14 @@
 
 /* Banner */
 
-/* 	#myVideo {
+	#myVideo {
 	  position: fixed;
 	  right: 0;
 	  bottom: 0;
 	  min-width: 100%; 
 	  min-height: 100%;
-	} */
+	  z-index: 0;
+	}
 
 	#banner {
 		display: -moz-flex;
@@ -3519,7 +3520,7 @@
 		text-align: center;
 	}
 
-		#banner video {
+/* 		#banner video {
 		  position: relative;
 		  overflow: hidden;			
 		  right: 0;
@@ -3527,7 +3528,7 @@
 		  min-width: 100%; 
 		  min-height: 100%;
 		  z-index: 0;
-		}
+		} */
 
 		#banner h2 {
 			-moz-transform: scale(1);
@@ -3543,7 +3544,7 @@
 			opacity: 1;
 			padding: 0.35em 1em;
 			position: relative;
-			z-index: 2;
+			z-index: 1;
 		}
 
 			#banner h2:before, #banner h2:after {
