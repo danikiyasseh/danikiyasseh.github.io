@@ -3710,6 +3710,18 @@
 				/*min-height: 0;*/
 			}
 			
+				#banner h2 {
+					font-size: 1.25em;
+				}
+
+				#banner br {
+					/*display: none;*/
+				}
+
+				#banner .more {
+					display: none;
+				}
+			
 				#banner video {
 					width:100%;
 					height: auto;
@@ -3725,6 +3737,18 @@
 				/*min-height: 0;*/
 			}
 			
+				#banner h2 {
+					font-size: 1.25em;
+				}
+
+				#banner br {
+					/*display: none;*/
+				}
+
+				#banner .more {
+					display: none;
+				}	
+			
 				#banner video {
 					width:100%;
 					height: auto;
@@ -3739,6 +3763,18 @@
 				/*height: auto;*/
 				/*min-height: 0;*/
 			}
+			
+				#banner h2 {
+					font-size: 1.25em;
+				}
+
+				#banner br {
+					/*display: none;*/
+				}
+
+				#banner .more {
+					display: none;
+				}
 			
 				#banner video {
 					width:100%;
