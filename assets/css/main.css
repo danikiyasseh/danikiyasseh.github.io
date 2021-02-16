@@ -3520,7 +3520,8 @@
 	}
 
 		#banner video {
-		  position: fixed;
+		  position: relative;
+		  overflow: hidden;			
 		  right: 0;
 		  bottom: 0;
 		  min-width: 100%; 
