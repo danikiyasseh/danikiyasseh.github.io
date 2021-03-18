@@ -1,4 +1,4 @@
-const path_to_model = 'https://github.com/danikiyasseh/danikiyasseh.github.io/tree/master/tfjs_models/model.json'
+const path_to_model = './model.json'
 // const path_to_model = 'https://drive.google.com/file/d/1yeg8usTgWEW1eR9L8YT2o-ZEVPwZ5lje/view?usp=sharing'
 
 // import * as tf from '@tensorflow/tfjs';
