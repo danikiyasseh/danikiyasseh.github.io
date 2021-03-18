@@ -15,8 +15,10 @@ async function app() {
 
   // Make a prediction through the model on our image.
   const imgEl = document.getElementById('img');
+  const img = tf.browser.fromPixels(imgEl);
+  const imgSample = tf.expandDims(img,0);
   // const result = await net.classify(imgEl);
-  const result = await model.predict(imgEl)
+  const result = await model.predict(imgSample);
   console.log(result);
 }
 
