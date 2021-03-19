@@ -1,19 +1,69 @@
-<!DOCTYPE HTML>
-<html>
-	<head>
+<!doctype html>
 
-	<script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs"></script>
-    	<script src="https://cdn.jsdelivr.net/npm/@tensorflow-models/mobilenet"></script>
-		
-	</head>
-	<body>
+<head>
+  <title>TensorFlow.js: Using a pretrained MobileNet</title>
+</head>
 
-	    <div id="console"></div>
-	    <!-- Add an image that we will use to test -->
-	    <img id="img" crossorigin src="https://i.imgur.com/JlUvsxa.jpg" width="224" height="224"/>
-	    <!-- Load index.js after the content of the page -->
-	    <script type="module" src="index.js"></script>
+<style>
+  .pred-container {
+    margin-bottom: 20px;
+  }
 
-	</body>
-</html>
+  .pred-container > div {
+    display: inline-block;
+    margin-right: 20px;
+    vertical-align: top;
+  }
+
+  .row {
+    display: table-row;
+  }
+  .cell {
+    display: table-cell;
+    padding-right: 20px;
+  }
+
+  #file-container {
+    margin-bottom: 20px;
+  }
+</style>
+
+<body>
+  <div class="tfjs-example-container">
+    <section class='title-area'>
+      <h1>TensorFlow.js: Using a pretrained MobileNet</h1>
+    </section>
+
+    <section>
+      <p class='section-head'>Description</p>
+      <p>
+        This demo uses the pretrained MobileNet_25_224 model from Keras which you can find
+        <a href="https://github.com/fchollet/deep-learning-models/releases/download/v0.6/mobilenet_2_5_224_tf.h5">here</a>.
+
+        It is not trained to recognize human faces. For best performance, upload images of objects
+        like piano, coffee mugs, bottles, etc. You can see all the objects types it has been trained to recognize in <a
+          href="https://github.com/tensorflow/tfjs-examples/blob/master/mobilenet/imagenet_classes.js">imagenet_classes.js</a>.
+      </p>
+    </section>
+
+    <section>
+      <p class='section-head'>Status</p>
+      <div id="status"></div>
+    </section>
+
+    <section>
+      <p class='section-head'>Model Output</p>
+
+      <div id="file-container" style="display: none">
+        Upload an image: <input type="file" id="files" name="files[]" multiple />
+      </div>
+
+      <div id="predictions"></div>
+
+      <img style="display: none" id="cat" src="https://i.imgur.com/JlUvsxa.jpg" width=224 height=224 />
+    </section>
+
+    <script src="index.js"></script>
+  </div>
+</body>
 
