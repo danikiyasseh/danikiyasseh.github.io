@@ -15,21 +15,17 @@ async function app() {
 
   const imgEl = document.getElementById('img');
   
-  const logits = tf.tidy(() => {
-    // Load image.
-    const img = tf.browser.fromPixels(imgEl);
-    const imgSample = img.reshape([1, 224, 224, 3]);
+  // Load image.
+  const img = tf.browser.fromPixels(imgEl);
+  const imgSample = img.reshape([1, 224, 224, 3]);
 
-    // Make a prediction through the model on our image.
-    // const result = await net.classify(imgEl);
-    const logits = await model.predict(imgSample);
-    return logits
-    // console.log(result);
-  });
+  // Make a prediction through the model on our image.
+  // const result = await net.classify(imgEl);
+  const logits = await model.predict(imgSample);
+  console.log(logits);
   
   //const classes = await getTopKClasses(logits, TOPK_PREDICTIONS);
   //showResults(imgEl, classes);
-  console.log(logits);
 }
 
 app();
