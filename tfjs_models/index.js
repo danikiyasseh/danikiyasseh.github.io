@@ -8,13 +8,14 @@ const path_to_model = './ResNet50/model.json'
 const topk = 3;
 const IMAGE_HEIGHT = 224;
 const IMAGE_WIDTH = 224;
+let model;
 
 const app = async () => {
   console.log('Loading model..');
 
   // Load the model.
   // net = await mobilenet.load();
-  const model = await tf.loadLayersModel(path_to_model);
+  model = await tf.loadLayersModel(path_to_model);
   console.log('Successfully loaded model');
   // Get image.
   const imgEl = document.getElementById('img');
@@ -139,7 +140,7 @@ filesElement.addEventListener('change', evt => {
       img.width = IMAGE_WIDTH;
       img.height = IMAGE_HEIGHT;
       //console.log(img.height);
-      img.onload = () => predict(img);
+      img.onload = () => predict(img, topk);
       //console.log(img.onload);
     };
 
