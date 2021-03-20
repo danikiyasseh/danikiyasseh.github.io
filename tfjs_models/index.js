@@ -13,15 +13,15 @@ let model;
 const app = async () => {
   status('Loading model...');
   //console.log('Loading model..');
-
-  // Forward pass with zeros to warm-up model (faster processing later).
-  model.predict(tf.zeros([1,IMAGE_HEIGHT,IMAGE_WIDTH,3])).dispose();
   
   // Load the model.
   // net = await mobilenet.load();
   model = await tf.loadLayersModel(path_to_model);
   status('Successfully loaded model!');
   // console.log('Successfully loaded model');
+  
+  // Forward pass with zeros to warm-up model (faster processing later).
+  model.predict(tf.zeros([1,IMAGE_HEIGHT,IMAGE_WIDTH,3])).dispose();
   
   // Get image.
   const imgEl = document.getElementById('img');
