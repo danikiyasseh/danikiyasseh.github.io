@@ -12,15 +12,16 @@ let model;
 
 const app = async () => {
   status('Loading model...');
-  console.log('Loading model..');
+  //console.log('Loading model..');
 
   // Load the model.
   // net = await mobilenet.load();
   model = await tf.loadLayersModel(path_to_model);
-  console.log('Successfully loaded model');
+  status('Successfully loaded model!');
+  // console.log('Successfully loaded model');
+  
   // Get image.
   const imgEl = document.getElementById('img');
-
   // If image available, predict. Otherwise, wait for loaded image.
   if (imgEl.complete && imgEl.naturalHeight !== 0) {
     console.log('Found image...');
@@ -55,20 +56,22 @@ async function predict(imgEl, topk) {
 // Function to make prediction and obtain topk results.
 async function classify(imgEl, topk) {
     status('Predicting...');
-    const classes = tf.tidy(() => {
-    // Load image into TFJS world.
-    const img = tf.browser.fromPixels(imgEl).toFloat();
-    // Normalize the image from [0-255] to [0-1].
-    const offset = 255;
-    const normalized = img.div(offset);
-    // Reshape image for network.
-    const imgSample = normalized.reshape([1, IMAGE_HEIGHT, IMAGE_WIDTH, 3]);
   
-    const logits = model.predict(imgSample);
-    return getTopKClasses(logits, topk);
-    //logits.dispose();
-    //return classes;
+    const logits = tf.tidy(() => {
+          // Load image into TFJS world.
+          const img = tf.browser.fromPixels(imgEl).toFloat();
+          // Normalize the image from [0-255] to [0-1].
+          const offset = 255;
+          const normalized = img.div(offset);
+          // Reshape image for network.
+          const imgSample = normalized.reshape([1, IMAGE_HEIGHT, IMAGE_WIDTH, 3]);
+
+          return model.predict(imgSample);
+          //logits.dispose();
+          //return classes;
     });
+  
+    const classes = await getTopKClasses(logits, topk);
     return classes;
 }
 
