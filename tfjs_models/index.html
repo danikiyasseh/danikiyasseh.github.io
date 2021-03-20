@@ -36,18 +36,14 @@
     
   <div class="tfjs-example-container">
     <section class='title-area'>
-      <h1>TensorFlow.js: Using a pretrained MobileNet</h1>
+      <h1>Arab-Ox: Database of Images of the Arab World</h1>
     </section>
 
     <section>
       <p class='section-head'>Description</p>
       <p>
-        This demo uses the pretrained MobileNet_25_224 model from Keras which you can find
-        <a href="https://github.com/fchollet/deep-learning-models/releases/download/v0.6/mobilenet_2_5_224_tf.h5">here</a>.
-
-        It is not trained to recognize human faces. For best performance, upload images of objects
-        like piano, coffee mugs, bottles, etc. You can see all the objects types it has been trained to recognize in <a
-          href="https://github.com/tensorflow/tfjs-examples/blob/master/mobilenet/imagenet_classes.js">imagenet_classes.js</a>.
+        This demo uses a trained MobileNetV2 to perform inference on images of UNESCO 
+        sites commonly found in the Arab world. 
       </p>
     </section>
 
@@ -68,10 +64,7 @@
       <img id="img" crossorigin src="./baalbek.jpg" width="224" height="224"/>
 
     </section>
-      
-<!--     <div id="console"></div> -->
-    <!-- Add an image that we will use to test -->
-<!--     <img style="display: none" id="img" src="https://i.imgur.com/JlUvsxa.jpg" width="224" height="224"/> -->
+    
     <!-- Load index.js after the content of the page -->
     <script src="index.js"></script>
     
