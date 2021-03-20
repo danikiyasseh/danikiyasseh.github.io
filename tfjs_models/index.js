@@ -11,6 +11,7 @@ const IMAGE_WIDTH = 224;
 let model;
 
 const app = async () => {
+  status('Loading model...');
   console.log('Loading model..');
 
   // Load the model.
@@ -43,21 +44,31 @@ const app = async () => {
 
 async function predict(imgEl, topk) {  
   const preds = await classify(imgEl, topk)
+  
+  status('Done!');
   console.log(preds);
+  
   showResults(imgEl, preds)
   console.log('Showed Results') 
 }
 
 // Function to make prediction and obtain topk results.
 async function classify(imgEl, topk) {
+    status('Predicting...');
+    const classes = tf.tidy(() => {
     // Load image into TFJS world.
-    const img = tf.browser.fromPixels(imgEl);
+    const img = tf.browser.fromPixels(imgEl).toFloat();
+    // Normalize the image from [0-255] to [0-1].
+    const offset = 255;
+    const normalized = img.div(offset);
     // Reshape image for network.
-    const imgSample = img.reshape([1, IMAGE_HEIGHT, IMAGE_WIDTH, 3]);
+    const imgSample = normalized.reshape([1, IMAGE_HEIGHT, IMAGE_WIDTH, 3]);
   
     const logits = model.predict(imgSample);
-    const classes = await getTopKClasses(logits, topk);
-    logits.dispose();
+    return getTopKClasses(logits, topk);
+    //logits.dispose();
+    //return classes;
+    });
     return classes;
 }
 
