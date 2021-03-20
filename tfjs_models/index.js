@@ -6,6 +6,8 @@ const path_to_model = './ResNet50/model.json'
 // const TOPK_PREDICTIONS = 5
 
 const topk = 3;
+const IMAGE_HEIGHT = 224
+const IMAGE_WIDTH = 225
 
 const app = async () => {
   console.log('Loading model..');
@@ -19,6 +21,7 @@ const app = async () => {
 
   // If image available, predict. Otherwise, wait for loaded image.
   if (imgEl.complete && imgEl.naturalHeight !== 0) {
+    console.log('Found image...');
     predict(imgEl, topk);
     imgEl.style.display = '';
   } else {
@@ -49,7 +52,7 @@ async function classify(imgEl, topk) {
     // Load image into TFJS world.
     const img = tf.browser.fromPixels(imgEl);
     // Reshape image for network.
-    const imgSample = img.reshape([1, 224, 224, 3]);
+    const imgSample = img.reshape([1, IMAGE_HEIGHT, IMAGE_WIDTH, 3]);
   
     const logits = model.predict(imgSample);
     const classes = await getTopKClasses(logits, topk);
@@ -133,8 +136,8 @@ filesElement.addEventListener('change', evt => {
       // Fill the image & call predict.
       let img = document.createElement('img');
       img.src = e.target.result;
-      img.width = 240;
-      img.height = 240;
+      img.width = IMAGE_WIDTH;
+      img.height = IMAGE_HEIGHT;
       //console.log(img.height);
       img.onload = () => predict(img);
       //console.log(img.onload);
