@@ -49,9 +49,9 @@ async function classify(imgEl, topk) {
     // Load image into TFJS world.
     const img = tf.browser.fromPixels(imgEl);
     // Reshape image for network.
-    const imgEl = img.reshape([1, 224, 224, 3]);
+    const imgSample = img.reshape([1, 224, 224, 3]);
   
-    const logits = model.predict(imgEl);
+    const logits = model.predict(imgSample);
     const classes = await getTopKClasses(logits, topk);
     logits.dispose();
     return classes;
