@@ -6,8 +6,8 @@ const path_to_model = './ResNet50/model.json'
 // const TOPK_PREDICTIONS = 5
 
 const topk = 3;
-const IMAGE_HEIGHT = 224
-const IMAGE_WIDTH = 225
+const IMAGE_HEIGHT = 224;
+const IMAGE_WIDTH = 224;
 
 const app = async () => {
   console.log('Loading model..');
