@@ -103,4 +103,4 @@ function printMatches(data) {
   predictions.innerHTML = results.join('<br/>');
 }
 
-app();
+// app();
