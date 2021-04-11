@@ -28,15 +28,33 @@
   </div>
   
   <script type="text/javascript">
-  
-  var wavesurfer = WaveSurfer.create({
-        container: '#waveform'
-    });
+    
+     var wavesurfer = WaveSurfer.create({
+      container: document.getElementById('waveform'),
+      waveColor: '#F2EDD4',
+      progressColor: '#46B54D'
+      });
 
     wavesurfer.load('./song.mp3');
+    
     wavesurfer.on('ready', function () {
-        wavesurfer.play();
-    });
+      var spectrogram = Object.create(WaveSurfer.Spectrogram);
+      spectrogram.init({
+        wavesurfer: wavesurfer,
+        container: document.getElementById('wave-spectrogram'),
+        fftSamples: 512,
+        labels: true
+      });
+    });    
+    
+//   var wavesurfer = WaveSurfer.create({
+//         container: '#waveform'
+//     });
+
+//     wavesurfer.load('./song.mp3');
+//     wavesurfer.on('ready', function () {
+//         wavesurfer.play();
+//     });
     
   </script>
   
