@@ -30,7 +30,7 @@
   <script type="text/javascript">
     
      var wavesurfer = WaveSurfer.create({
-      container: document.getElementById('waveform'),
+      container: '#waveform',
       waveColor: '#F2EDD4',
       progressColor: '#46B54D'
       });
@@ -41,7 +41,7 @@
       var spectrogram = Object.create(WaveSurfer.Spectrogram);
       spectrogram.init({
         wavesurfer: wavesurfer,
-        container: document.getElementById('wave-spectrogram'),
+        container: '#wave-spectrogram',
         fftSamples: 512,
         labels: true
       });
