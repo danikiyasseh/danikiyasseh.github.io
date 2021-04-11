@@ -1,10 +1,11 @@
-sync function runExample() {
+const app = async () => { 
+//   sync function runExample() {
   // Create an ONNX inference session with WebGL backend.
   const session = new onnx.InferenceSession({ backendHint: 'webgl' });
 
   // Load an ONNX model. This model is Resnet50 that takes a 1*3*224*224 image and classifies it.
   await session.loadModel("./resnet50_8.onnx");
-
+  console.log('Model loaded...')
   // Load image.
   const imageLoader = new ImageLoader(imageSize, imageSize);
   const imageData = await imageLoader.getImageData('./resnet-cat.jpg');
@@ -98,3 +99,5 @@ function printMatches(data) {
   }
   predictions.innerHTML = results.join('<br/>');
 }
+
+app();
