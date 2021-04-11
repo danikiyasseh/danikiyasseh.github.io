@@ -34,22 +34,29 @@
   <script type="text/javascript">
     
      var wavesurfer = WaveSurfer.create({
-      container: '#waveform',
-      waveColor: '#F2EDD4',
-      progressColor: '#46B54D'
+          container: '#waveform',
+          waveColor: '#F2EDD4',
+          progressColor: '#46B54D',
+          plugins: [
+          WaveSurfer.spectrogram.create({
+              container: "#wave-spectrogram",
+              fftSamples: 1024,
+              labels: true
+              })
+          ]
       });
 
     wavesurfer.load('./song.mp3');
     
-    wavesurfer.on('ready', function () {
-      var spectrogram = Object.create(WaveSurfer.Spectrogram);
-      spectrogram.init({
-        wavesurfer: wavesurfer,
-        container: '#wave-spectrogram',
-        fftSamples: 512,
-        labels: true
-      });
-    });    
+//     wavesurfer.on('ready', function () {
+//       var spectrogram = Object.create(WaveSurfer.Spectrogram);
+//       spectrogram.init({
+//         wavesurfer: wavesurfer,
+//         container: '#wave-spectrogram',
+//         fftSamples: 512,
+//         labels: true
+//       });
+//     });    
     
 //   var wavesurfer = WaveSurfer.create({
 //         container: '#waveform'
