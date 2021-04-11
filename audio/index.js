@@ -5,8 +5,8 @@ async function runExample() {
   console.log('Loading model...')
 
   // Load an ONNX model. This model is Resnet50 that takes a 1*3*224*224 image and classifies it.
-  const path_to_model = "https://drive.google.com/file/d/1-TaopvgzkuoMVDx4XcoA_Vuht661tzjW/view?usp=sharing"
-//   const path_to_model = "./squeezenetV1_8.onnx"
+//   const path_to_model = "https://drive.google.com/file/d/1-TaopvgzkuoMVDx4XcoA_Vuht661tzjW/view?usp=sharing"
+  const path_to_model = "./squeezenetV1_8.onnx"
   await session.loadModel(path_to_model);
   console.log('Model loaded...')
   // Load image.
