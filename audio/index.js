@@ -5,7 +5,7 @@ async function runExample() {
   console.log('Loading model...')
 
   // Load an ONNX model. This model is Resnet50 that takes a 1*3*224*224 image and classifies it.
-  await session.loadModel("./resnet50_8.onnx");
+  await session.loadModel("./squeezenetV1_8.onnx");
   console.log('Model loaded...')
   // Load image.
   const imageLoader = new ImageLoader(imageSize, imageSize);
