@@ -2,6 +2,7 @@ const app = async () => {
 //   sync function runExample() {
   // Create an ONNX inference session with WebGL backend.
   const session = new onnx.InferenceSession({ backendHint: 'webgl' });
+  console.log('Loading model...')
 
   // Load an ONNX model. This model is Resnet50 that takes a 1*3*224*224 image and classifies it.
   await session.loadModel("./resnet50_8.onnx");
