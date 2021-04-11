@@ -52,7 +52,7 @@
           ]
       });
 
-    wavesurfer.load('./song.mp3');
+<!--     wavesurfer.load('./song.mp3'); -->
     
     wavesurfer.microphone.on('deviceReady', function(stream) {
         console.log('Device ready!', stream);
@@ -62,7 +62,7 @@
     });
 
   // start the microphone
-  wavesurfer.microphone.start();
+  wavesurfer.load(wavesurfer.microphone.start());
 
   // pause rendering
   //wavesurfer.microphone.pause();
