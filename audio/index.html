@@ -7,6 +7,7 @@
   <script src="./image-loader.js"></script>
   <script src="https://unpkg.com/wavesurfer.js"></script>
   <script src="https://unpkg.com/wavesurfer.js/dist/plugin/wavesurfer.spectrogram.min.js"></script>
+  <script src="https://unpkg.com/wavesurfer.js/dist/plugin/wavesurfer.microphone.min.js""></script>
   <script src="./index.js"></script>
   <link rel="stylesheet" href="./audio.css" />
   <script>
@@ -30,6 +31,8 @@
   <h2>Spectrogram</h2>
   <div id="wave-spectrogram"></div>
 
+  <h2>Record</h2>
+  <div id="wave-recording"></div>
   
   <script type="text/javascript">
     
@@ -42,11 +45,41 @@
               container: "#wave-spectrogram",
               fftSamples: 1024,
               labels: true
-              })
+          }),
+          WaveSurfer.microphone.create({
+            container: "#wave-recording"
+          })
           ]
       });
 
     wavesurfer.load('./song.mp3');
+    
+    wavesurfer.microphone.on('deviceReady', function(stream) {
+        console.log('Device ready!', stream);
+    });
+    wavesurfer.microphone.on('deviceError', function(code) {
+        console.warn('Device error: ' + code);
+    });
+
+  // start the microphone
+  wavesurfer.microphone.start();
+
+  // pause rendering
+  //wavesurfer.microphone.pause();
+
+  // resume rendering
+  //wavesurfer.microphone.play();
+
+  // stop visualization and disconnect microphone
+  //wavesurfer.microphone.stopDevice();
+
+  // same as stopDevice() but also clears the wavesurfer canvas
+  //wavesurfer.microphone.stop();
+
+  // destroy the plugin
+  //wavesurfer.microphone.destroy();
+    
+    
     
 //     wavesurfer.on('ready', function () {
 //       var spectrogram = Object.create(WaveSurfer.Spectrogram);
