@@ -1,5 +1,5 @@
-const app = async () => { 
-//   sync function runExample() {
+// const app = async () => { 
+async function runExample() {
   // Create an ONNX inference session with WebGL backend.
   const session = new onnx.InferenceSession({ backendHint: 'webgl' });
   console.log('Loading model...')
