@@ -4,6 +4,7 @@
   <script src="./ndarray-browser-min.js"></script>
   <script src="./imagenet.js"></script>
   <script src="./image-loader.js"></script>
+  <script src="https://unpkg.com/wavesurfer.js"></script>
   <script src="./index.js"></script>
   <script>
     const imageSize = 224;
@@ -16,7 +17,27 @@
     <input type="button" value="Run" onclick="runExample()">
   </div>
   <div id="predictions">
-
   </div>
+  
+  <div id="waveform">
+  </div>
+  
+  <div id="wave-spectrogram">
+  </div>
+  
+  var wavesurfer = WaveSurfer.create({
+    container: '#waveform'
+    // your options here
+    plugins: [
+        WaveSurfer.spectrogram.create({
+            wavesurfer: wavesurfer,
+            container: "#wave-spectrogram",
+            labels: true
+          })
+      ]
+  });
+  
+  wavesurfer.load('./song.mp3');
+  
 </body>
 </html>
