@@ -5,7 +5,7 @@
   <script src="./imagenet.js"></script>
   <script src="./image-loader.js"></script>
   <script src="https://unpkg.com/wavesurfer.js"></script>
-  <script src="./audio.js"></script>
+<!--   <script src="./audio.js"></script> -->
   <script src="./index.js"></script>
   <script>
     const imageSize = 224;
@@ -26,6 +26,19 @@
   
   <div id="wave-spectrogram">
   </div>
+  
+  <script type="text/javascript">
+  
+  var wavesurfer = WaveSurfer.create({
+        container: '#waveform'
+    });
+
+    wavesurfer.load('./song.mp3');
+    wavesurfer.on('ready', function () {
+        wavesurfer.play();
+    });
+    
+  </script>
   
 </body>
 </html>
