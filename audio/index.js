@@ -22,17 +22,18 @@ async function runExample() {
   // Run model with Tensor inputs and get the result.
   const outputMap = await session.run([inputTensor]);
   const outputData = outputMap.values().next().value.data;
-
+  console.log(outputData);
   // Render the output result in html.
-  printMatches(outputData);
+  // printMatches(outputData);
 }
 
 /**
  * Preprocess raw image data to match Resnet50 requirement.
  */
 function preprocess(data, width, height) {
+  const channels = 1;
   const dataFromImage = ndarray(new Float32Array(data), [width, height, 4]);
-  const dataProcessed = ndarray(new Float32Array(width * height * 3), [1, 3, height, width]);
+  const dataProcessed = ndarray(new Float32Array(width * height * channels), [1, channels, height, width]);
 
   // Normalize 0-255 to (-1)-1
   ndarray.ops.divseq(dataFromImage, 128.0);
@@ -40,8 +41,8 @@ function preprocess(data, width, height) {
 
   // Realign imageData from [224*224*4] to the correct dimension [1*3*224*224].
   ndarray.ops.assign(dataProcessed.pick(0, 0, null, null), dataFromImage.pick(null, null, 2));
-  ndarray.ops.assign(dataProcessed.pick(0, 1, null, null), dataFromImage.pick(null, null, 1));
-  ndarray.ops.assign(dataProcessed.pick(0, 2, null, null), dataFromImage.pick(null, null, 0));
+//   ndarray.ops.assign(dataProcessed.pick(0, 1, null, null), dataFromImage.pick(null, null, 1));
+//   ndarray.ops.assign(dataProcessed.pick(0, 2, null, null), dataFromImage.pick(null, null, 0));
 
   return dataProcessed.data;
 }
@@ -102,5 +103,3 @@ function printMatches(data) {
   }
   predictions.innerHTML = results.join('<br/>');
 }
-
-// app();
