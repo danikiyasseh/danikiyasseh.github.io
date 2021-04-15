@@ -11,15 +11,15 @@ async function runExample() {
   console.log('Model loaded...')
   // Load image.
   const imageLoader = new ImageLoader(imageHeight, imageWidth);
-  const imageData = await imageLoader.getImageData('./resnet-cat.jpg');
+  const imageData = await imageLoader.getImageData('./gray_cat.jpg');
 
   // Preprocess the image data to match input dimension requirement, which is 1*3*224*224.
   const width = imageWidth;
   const height = imageHeight;
-  const channels = 3;
+  const channels = 1;
   const preprocessedData = preprocess(imageData.data, width, height, channels);
 
-  const inputTensor = new onnx.Tensor(preprocessedData, 'float32', [1, channels, width, height]);
+  const inputTensor = new onnx.Tensor(preprocessedData, 'float32', [1, channels, height, width]);
   // Run model with Tensor inputs and get the result.
   const outputMap = await session.run([inputTensor]);
   const outputData = outputMap.values().next().value.data;
