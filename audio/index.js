@@ -32,7 +32,7 @@ async function runExample() {
  * Preprocess raw image data to match Resnet50 requirement.
  */
 function preprocess(data, width, height, channels) {
-  const dataFromImage = ndarray(new Float32Array(data), [width, height, 4]);
+  const dataFromImage = ndarray(new Float32Array(data), [width, height, channels + 1]);
   const dataProcessed = ndarray(new Float32Array(width * height * channels), [1, channels, height, width]);
 
   // Normalize 0-255 to (-1)-1
