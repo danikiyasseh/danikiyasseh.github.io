@@ -5,17 +5,17 @@ async function runExample() {
   console.log('Loading model...')
 
   // Load an ONNX model. This model is Resnet50 that takes a 1*3*224*224 image and classifies it.
-//   const path_to_model = "https://drive.google.com/file/d/1-TaopvgzkuoMVDx4XcoA_Vuht661tzjW/view?usp=sharing"
-  const path_to_model = "./squeezenetV1_8.onnx"
+  const path_to_model = "./cnn6.onnx"
+  // const path_to_model = "./squeezenetV1_8.onnx"
   await session.loadModel(path_to_model);
   console.log('Model loaded...')
   // Load image.
-  const imageLoader = new ImageLoader(imageSize, imageSize);
+  const imageLoader = new ImageLoader(imageHeight, imageWidth);
   const imageData = await imageLoader.getImageData('./resnet-cat.jpg');
 
   // Preprocess the image data to match input dimension requirement, which is 1*3*224*224.
-  const width = imageSize;
-  const height = imageSize;
+  const width = imageWidth;
+  const height = imageHeight;
   const preprocessedData = preprocess(imageData.data, width, height);
 
   const inputTensor = new onnx.Tensor(preprocessedData, 'float32', [1, 3, width, height]);
