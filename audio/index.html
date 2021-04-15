@@ -53,34 +53,7 @@
       });
 
 <!--     wavesurfer.load('./song.mp3'); -->
-    
-    wavesurfer.microphone.on('deviceReady', function(stream) {
-        console.log('Device ready!', stream);
-    });
-    wavesurfer.microphone.on('deviceError', function(code) {
-        console.warn('Device error: ' + code);
-    });
 
-  // start the microphone
-  wavesurfer.load(wavesurfer.microphone.start());
-
-  // pause rendering
-  //wavesurfer.microphone.pause();
-
-  // resume rendering
-  //wavesurfer.microphone.play();
-
-  // stop visualization and disconnect microphone
-  //wavesurfer.microphone.stopDevice();
-
-  // same as stopDevice() but also clears the wavesurfer canvas
-  //wavesurfer.microphone.stop();
-
-  // destroy the plugin
-  //wavesurfer.microphone.destroy();
-    
-    
-    
 //     wavesurfer.on('ready', function () {
 //       var spectrogram = Object.create(WaveSurfer.Spectrogram);
 //       spectrogram.init({
