@@ -5,18 +5,18 @@ async function runExample() {
   console.log('Loading model...')
 
   // Load an ONNX model. This model is Resnet50 that takes a 1*3*224*224 image and classifies it.
-  const path_to_model = "./cnn6.onnx"
-  // const path_to_model = "./squeezenetV1_8.onnx"
+//   const path_to_model = "./cnn6.onnx"
+  const path_to_model = "./squeezenetV1_8.onnx"
   await session.loadModel(path_to_model);
   console.log('Model loaded...')
   // Load image.
   const imageLoader = new ImageLoader(imageHeight, imageWidth);
-  const imageData = await imageLoader.getImageData('./gray_cat.jpg');
+  const imageData = await imageLoader.getImageData('./resnet-cat.jpg');
 
   // Preprocess the image data to match input dimension requirement, which is 1*3*224*224.
   const width = imageWidth;
   const height = imageHeight;
-  const channels = 1;
+  const channels = 3;
   const preprocessedData = preprocess(imageData.data, width, height, channels);
 
   const inputTensor = new onnx.Tensor(preprocessedData, 'float32', [1, channels, width, height]);
@@ -41,10 +41,10 @@ function preprocess(data, width, height, channels) {
   ndarray.ops.subseq(dataFromImage, 1.0);
 
   // Realign imageData from [224*224*4] to the correct dimension [1*3*224*224].
-  ndarray.ops.assign(dataProcessed.pick(0, 0, null, null), dataFromImage.pick(null, null, 0));
-//   ndarray.ops.assign(dataProcessed.pick(0, 0, null, null), dataFromImage.pick(null, null, 2));
-//   ndarray.ops.assign(dataProcessed.pick(0, 1, null, null), dataFromImage.pick(null, null, 1));
-//   ndarray.ops.assign(dataProcessed.pick(0, 2, null, null), dataFromImage.pick(null, null, 0));
+//   ndarray.ops.assign(dataProcessed.pick(0, 0, null, null), dataFromImage.pick(null, null, 0));
+  ndarray.ops.assign(dataProcessed.pick(0, 0, null, null), dataFromImage.pick(null, null, 2));
+  ndarray.ops.assign(dataProcessed.pick(0, 1, null, null), dataFromImage.pick(null, null, 1));
+  ndarray.ops.assign(dataProcessed.pick(0, 2, null, null), dataFromImage.pick(null, null, 0));
 
   return dataProcessed.data;
 }
