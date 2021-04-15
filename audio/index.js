@@ -34,7 +34,8 @@ async function runExample() {
 function preprocess(data, width, height, channels) {
   const dataFromImage = ndarray(new Float32Array(data), [width, height, channels + 1]);
   const dataProcessed = ndarray(new Float32Array(width * height * channels), [1, channels, height, width]);
-
+  
+  console.log(dataFromImage.size,dataProcessed.size);
   // Normalize 0-255 to (-1)-1
   ndarray.ops.divseq(dataFromImage, 128.0);
   ndarray.ops.subseq(dataFromImage, 1.0);
