@@ -3,109 +3,89 @@
 <head>
   <script src="https://cdn.jsdelivr.net/npm/onnxjs/dist/onnx.min.js"></script>
   <script src="./ndarray-browser-min.js"></script>
+<!--   <script src="https://cdnjs.cloudflare.com/ajax/libs/ndarray/1.0.19/ndarray.min.js"></script> -->
   <script src="./imagenet.js"></script>
-  <script src="./image-loader.js"></script>
+  <script src="./audioclasses.js"></script>
   <script src="https://unpkg.com/wavesurfer.js"></script>
-  <script src="https://unpkg.com/wavesurfer.js/dist/plugin/wavesurfer.spectrogram.min.js"></script>
-  <script src="https://unpkg.com/wavesurfer.js/dist/plugin/wavesurfer.microphone.min.js""></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.5.11/p5.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.5.11/addons/p5.dom.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.5.11/addons/p5.sound.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/dspjs@1.0.0/dsp.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/gh/nicolaspanel/numjs@0.15.1/dist/numjs.min.js"></script>
   <script src="./index.js"></script>
-  <link rel="stylesheet" href="./audio.css" />
-  <script>
-    const imageHeight = 1000;
-    const imageWidth = 64;
-  </script>
+  <link rel="stylesheet" href="style.css" />
+<!--   <script>
+    const imageHeight = 224;
+    const imageWidth = 224;
+  </script> -->
 </head>
   
 <body>
-  <h1>Resnet50 Example</h1>
-  <img id="imageSource" src="./gray_cat.jpg"/>
+  <div class="card elevation">
+    
+  <h1>
+     Turath Aghani
+  </h1>
+<!--   <h1>Resnet50 Example</h1>
+  <img id="imageSource" src="https://img.webmd.com/dtmcms/live/webmd/consumer_assets/site_images/article_thumbnails/other/cat_relaxing_on_patio_other/1800x1200_cat_relaxing_on_patio_other.jpg"/>
   <div>
-    <input type="button" value="Run" onclick="runExample()">
-  </div>
-  <div id="predictions">
-  </div>
-  
-  <h2>Waveform</h2>
-  <div id="waveform">
-  </div>
-  
-  <h2>Spectrogram</h2>
-  <div id="wave-spectrogram"></div>
+    <input type="button" value="Run" onclick="runExample()"> -->
 
-  <h2>Record</h2>
-  <div id="wave-recording"></div>
-  
-  <script type="text/javascript">
+<!--   </div> -->
     
-     var wavesurfer = WaveSurfer.create({
-          container: '#waveform',
-          waveColor: '#F2EDD4',
-          progressColor: '#46B54D',
-          plugins: [
-          WaveSurfer.spectrogram.create({
-              container: "#wave-spectrogram",
-              fftSamples: 1024,
-              labels: true
-          }),
-          WaveSurfer.microphone.create({
-            container: "#wave-recording"
-          })
-          ]
-      });
-
-      wavesurfer.load('./song.mp3');
-                         
-//     wavesurfer.on('ready', function () {
-//       var spectrogram = Object.create(WaveSurfer.Spectrogram);
-//       spectrogram.init({
-//         wavesurfer: wavesurfer,
-//         container: '#wave-spectrogram',
-//         fftSamples: 512,
-//         labels: true
-//       });
-//     });    
+  <div>
+    <input class="button" value="Record Song" onclick="record()">
+  </div>  
     
-//   var wavesurfer = WaveSurfer.create({
-//         container: '#waveform'
-//     });
-
-//     wavesurfer.load('./song.mp3');
-//     wavesurfer.on('ready', function () {
-//         wavesurfer.play();
-//     });
+  <div class="predictions">
     
-  </script>
+      <div class="prediction-col" id="prediction-0">
+          <div class="prediction-bar-container">
+            <div class="prediction-bar"></div>
+          </div>
+          <div class="prediction-number">0</div>
+      </div>
+    
+      <div class="prediction-col" id="prediction-1">
+          <div class="prediction-bar-container">
+            <div class="prediction-bar"></div>
+          </div>
+          <div class="prediction-number">1</div>
+      </div>
+
+      <div class="prediction-col" id="prediction-2">
+          <div class="prediction-bar-container">
+            <div class="prediction-bar"></div>
+          </div>
+          <div class="prediction-number">2</div>
+      </div>
+
+      <div class="prediction-col" id="prediction-3">
+          <div class="prediction-bar-container">
+            <div class="prediction-bar"></div>
+          </div>
+          <div class="prediction-number">3</div>
+      </div>
+
+      <div class="prediction-col" id="prediction-4">
+          <div class="prediction-bar-container">
+            <div class="prediction-bar"></div>
+          </div>
+          <div class="prediction-number">4</div>
+      </div>
+    
+  </div>
+    
+  <div class="image" id="spect">
+  </div>
+    
+  <div id="artistpredictions">
+  </div>
+        
+  <div id="songpredictions">
+  </div>
+
+  </div>
   
-  <script>
-                                        
-  navigator.mediaDevices.getUserMedia({ audio: true })
-  .then(stream => {
-    const mediaRecorder = new MediaRecorder(stream);
-    mediaRecorder.start();
-
-    const audioChunks = [];
-    mediaRecorder.addEventListener("dataavailable", event => {
-      audioChunks.push(event.data);
-    });
-
-    mediaRecorder.addEventListener("stop", () => {
-      const audioBlob = new Blob(audioChunks);
-      const audioUrl = URL.createObjectURL(audioBlob);
-      const audio = new Audio(audioUrl);
-      audio.play();
-    });
-
-    setTimeout(() => {
-      mediaRecorder.stop();
-    }, 3000);
-  });
-                                        
-  </script>
-                                         
-  <button class="btn btn-primary" onclick="wavesurfer.playPause()">
-    <i class="glyphicon glyphicon-play"></i>
-    Play/Pause
-  </button>
-  
-</body>
+  </body>
 </html>
