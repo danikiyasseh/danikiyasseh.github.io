@@ -128,7 +128,7 @@ async function processSound() {
     const session = new onnx.InferenceSession({ backendHint: 'webgl' });
     console.log('Loading model...')
     // Load an ONNX model. This model is Resnet50 that takes a 1*3*224*224 image and classifies it.
-    const path_to_model = "./squeezenetV1_8.onnx"
+    const path_to_model = "./squeezenet1.0-3.onnx"
     await session.loadModel(path_to_model);
     console.log('Model loaded...')
     const outputMap = await session.run([tensor]);
