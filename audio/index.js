@@ -110,6 +110,8 @@ function record() {
         })
 }
 
+const path_to_model = './cnn14_tfjs/model.json';
+
 async function processSound() {
   
     soundFile.play(); // play the result!
@@ -123,17 +125,26 @@ async function processSound() {
     const imgWidth = 64;
     const channels = 1;
     const data = preprocess(spectrogram.imageData.data, imgHeight, imgWidth, channels);
-    const tensor = new onnx.Tensor(data, 'float32', [1,channels,imgHeight,imgWidth]);
-    
-    const session = new onnx.InferenceSession({ backendHint: 'webgl' });
-    console.log('Loading model...')
+  
+    // ONNX Stuff 
+//     const tensor = new onnx.Tensor(data, 'float32', [1,channels,imgHeight,imgWidth]);
+//     const session = new onnx.InferenceSession({ backendHint: 'webgl' });
     // Load an ONNX model. This model is Resnet50 that takes a 1*3*224*224 image and classifies it.
-    const path_to_model = "https://cors-anywhere.herokuapp.com/https://drive.google.com/file/d/1-s4vHfWx9zXUoUYTx7aR4jMRq3n4YdOZ/view?usp=sharing" //"./cnn6.onnx"
-    await session.loadModel(path_to_model);
+//     const path_to_model = "https://cors-anywhere.herokuapp.com/https://drive.google.com/file/d/1-s4vHfWx9zXUoUYTx7aR4jMRq3n4YdOZ/view?usp=sharing" //"./cnn6.onnx"
+//     await session.loadModel(path_to_model);
+//     const outputMap = await session.run([tensor]);
+//     // const outputData = outputMap.values().next().value.data;
+//     printMatches(outputMap.get("artist").data,'artist');
+    // END ONNX STUFF
+  
+    console.log('Loading model...')
+    model = await tf.loadLayersModel(path_to_model);  
     console.log('Model loaded...')
-    const outputMap = await session.run([tensor]);
-    // const outputData = outputMap.values().next().value.data;
-    printMatches(outputMap.get("artist").data,'artist');
+    model.predict(tf.zeros([1,imgHeight,imgWidth,channels])).dispose();
+  
+    outputs = model.predict(data);
+    console.log(outputs)
+    printMatches(outputs,'artist');
   
 }
 
