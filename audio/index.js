@@ -141,8 +141,9 @@ async function processSound() {
     model = await tf.loadLayersModel(path_to_model);  
     console.log('Model loaded...')
     model.predict(tf.zeros([1,imgHeight,imgWidth,channels])).dispose();
-  
-    outputs = model.predict(data);
+    
+    const tensor = new tf.tensor(data,[1,imgHeight,imgWidth,channels],'float32');
+    outputs = model.predict(tensor);
     console.log(outputs)
     printMatches(outputs,'artist');
   
