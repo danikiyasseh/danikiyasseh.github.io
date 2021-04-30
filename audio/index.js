@@ -182,7 +182,7 @@ async function processSound() {
     console.log('Loading model...')
     model = await tf.loadGraphModel(path_to_model);  
     console.log('Model loaded...')
-    model.predict(tf.zeros([1,channels,imgHeight,imgWidth])).dispose();
+    model.predict(tf.zeros([channels,imgHeight,imgWidth])).dispose();
     
     const tensor = new tf.tensor(data,[1,channels,imgHeight,imgWidth],'float32');
     outputs = model.predict(tensor);
