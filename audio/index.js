@@ -152,7 +152,7 @@ function record() {
         })
 }
 
-const path_to_model = './cnn14_tfjs_keras/model.json'; // './cnn14_tfjs_keras/model.json'
+const path_to_model = './cnn14_tfjs_keras/model.json'; //'./cnn14_tfjs_keras/model.json';
 
 async function processSound() {
   
@@ -180,8 +180,8 @@ async function processSound() {
     // END ONNX STUFF
   
     console.log('Loading model...')
-    // model = await tf.loadGraphModel(path_to_model);  
-    model = await tf.loadLayersModel(path_to_model);
+    model = await tf.loadGraphModel(path_to_model);  
+    // model = await tf.loadLayersModel(path_to_model);
     console.log('Model loaded...')
     //model.predict(tf.zeros([1,channels,imgHeight,imgWidth])).dispose();
     
