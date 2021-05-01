@@ -106,6 +106,29 @@
 // }
 // tf.serialization.registerClass(lambdaLayer);
 
+class ReduceMean extends tf.layers.Layer {
+    constructor() {
+        super();
+    }
+
+    call(input) {
+        return tf.tidy(() => {
+            const tensor = tf.mean(input[0],3);
+            return tensor;
+        });
+    }
+
+    getConfig() {
+        const config = super.getConfig();
+        return config;
+    }
+
+    static get className() {
+        return 'ReduceMean';
+    }
+}
+tf.serialization.registerClass(ReduceMean);
+
 
 // Option 2 for recording audio
 
