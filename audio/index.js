@@ -119,6 +119,10 @@ class ReduceMean extends tf.layers.Layer {
         });
     }
 
+    computeOutputShape(inputShape) {
+        return [inputShape[0], inputShape[1], inputShape[2]]
+      }
+    
     getConfig() {
         const config = super.getConfig();
         return config;
