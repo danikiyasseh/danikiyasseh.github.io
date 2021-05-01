@@ -130,6 +130,29 @@ class ReduceMean extends tf.layers.Layer {
 tf.serialization.registerClass(ReduceMean);
 
 
+class SoftMax extends tf.layers.Layer {
+    constructor() {
+        super();
+    }
+
+    call(input) {
+        return tf.tidy(() => {
+            const tensor = tf.softmax(input[0]);
+            return tensor;
+        });
+    }
+
+    getConfig() {
+        const config = super.getConfig();
+        return config;
+    }
+
+    static get className() {
+        return 'SoftMax';
+    }
+}
+tf.serialization.registerClass(SoftMax);
+
 // Option 2 for recording audio
 
 
