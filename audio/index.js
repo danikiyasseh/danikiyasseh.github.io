@@ -113,7 +113,8 @@ class ReduceMean extends tf.layers.Layer {
 
     call(input) {
         return tf.tidy(() => {
-            const tensor = tf.mean(input[0],3);
+            const tensor = tf.mean(input[0],3,keepDims=false);
+            console.log(tensor);
             return tensor;
         });
     }
