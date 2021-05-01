@@ -152,7 +152,7 @@ function record() {
         })
 }
 
-const path_to_model = './cnn14_tfjs/model.json';
+const path_to_model = './cnn14_tfjs_tfsaved/model.json'; // './cnn14_tfjs_keras/model.json'
 
 async function processSound() {
   
