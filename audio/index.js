@@ -106,6 +106,57 @@
 // }
 // tf.serialization.registerClass(lambdaLayer);
 
+class ReduceMean extends tf.layers.Layer {
+    constructor() {
+        super();
+    }
+
+    call(input) {
+        return tf.tidy(() => {
+            const tensor = tf.mean(input[0],3,keepDims=false);
+            console.log(tensor);
+            return tensor;
+        });
+    }
+
+    computeOutputShape(inputShape) {
+        return [inputShape[0], inputShape[1], inputShape[2]]
+      }
+    
+    getConfig() {
+        const config = super.getConfig();
+        return config;
+    }
+
+    static get className() {
+        return 'ReduceMean';
+    }
+}
+tf.serialization.registerClass(ReduceMean);
+
+
+class SoftMax extends tf.layers.Layer {
+    constructor() {
+        super();
+    }
+
+    call(input) {
+        return tf.tidy(() => {
+            const tensor = tf.softmax(input[0]);
+            return tensor;
+        });
+    }
+
+    getConfig() {
+        const config = super.getConfig();
+        return config;
+    }
+
+    static get className() {
+        return 'SoftMax';
+    }
+}
+tf.serialization.registerClass(SoftMax);
 
 // Option 2 for recording audio
 
@@ -152,7 +203,7 @@ function record() {
         })
 }
 
-const path_to_model = './cnn14_tfjs_tfsaved/model.json'; // './cnn14_tfjs_keras/model.json'
+const path_to_model = './cnn14_tfjs_keras/model.json';  //'./cnn14_tfjs_keras/model.json';
 
 async function processSound() {
   
@@ -180,7 +231,8 @@ async function processSound() {
     // END ONNX STUFF
   
     console.log('Loading model...')
-    model = await tf.loadGraphModel(path_to_model);  
+    // model = await tf.loadGraphModel(path_to_model);  
+    model = await tf.loadLayersModel(path_to_model);
     console.log('Model loaded...')
     //model.predict(tf.zeros([1,channels,imgHeight,imgWidth])).dispose();
     
