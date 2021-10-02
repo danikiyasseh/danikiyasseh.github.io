@@ -82,7 +82,7 @@
 								Within the healthcare industry, the rate of data generation now far exceeds the rate with which such data can be labelled by expert annotators (e.g., medical professionals). 
 								As such, it is characterized by the presence of abundant, unlabelled data, and scarce, labelled data. Exploiting this unlabelled data, at scale, can allow deep learning systems
 								to learn better (and faster) when achieving a clinical task with limited, labelled data. One way to exploit unlabelled data is via self-supervised pre-training, and more specifically
-								through the framework of contrastive learning. 
+								through the framework of contrastive learning. To better inform our discussion on contrastive learning, we must first outline the notion of invariances. 
 								</p>
 								
 								<h4>
@@ -113,12 +113,26 @@
 									<img src="./images/CLOCS_GIF.gif" alt="description of gif" /> 									
 								</center>
 								</p>
+
+								<h4>
+								Cardiac Arrhythmia Diagnosis
+								</h4>
+								<p>
+								Once we complete the pre-training step (i.e., CLOCS), we transfer a subset of the parameters to the downstream task of interest. In our case, this focuses on identifying the abnormalities in the functioning
+								of the heart, also known as cardiac arrhythmia diagnosis. This involves mapping an electrocardiogram (ECG) signal to a cardiac arrhythmia class, as shown below.
+								</p>
+								<p>
+								<center>
+									<img src="./images/cardiac_arrhythmia_GIF.png" style="width: 35vw;" /> 									
+								</center>
+								</p>
 								
 								<h4>
 								Linear Evaluation of Representations
 								</h4>
 								<p>
-								We show that our framework, CLOCS, outperforms both generic and domain-specific self-supervised pre-training methods. These include SimCLR, BYOL, and MT-SSL. 
+								We deploy our framework in the linear evaluation scenario, where the transferred parameters are frozen (i.e., we simply extract representations of cardiac signals) and we learn the parameters of a multinomial 
+								logistic regression model. In this scenario, we show that our framework, CLOCS, outperforms both generic and domain-specific self-supervised pre-training methods (e.g., SimCLR, BYOL, and MT-SSL). 
 								</p>
 								<p>
 								<center>
