@@ -81,19 +81,36 @@
 								<p>
 								Within the healthcare industry, the rate of data generation now far exceeds the rate with which such data can be labelled by expert annotators (e.g., medical professionals). 
 								As such, it is characterized by the presence of abundant, unlabelled data, and scarce, labelled data. Exploiting this unlabelled data, at scale, can allow deep learning systems
-								to learn better (and faster) when achieving a clinical task with limited, labelled data.
+								to learn better (and faster) when achieving a clinical task with limited, labelled data. One way to exploit unlabelled data is via self-supervised pre-training, and more specifically
+								through the framework of contrastive learning. 
 								</p>
 								
 								<h4>
 								Temporal and Spatial Invariances in Cardiac Signals
 								</h4>
 								<p>
-								
+								An invariance is an aspect of data, which, when changed, should not affect the underlying classification of that data. Cardiac signals, for example, can exhibit both temporal and spatial 
+								invariances. In this context, temporal invariance (visualized below) implies that temporally adjacent sub-segments of a cardiac signal can be safely assumed to map to the same pathology (disease). This is a 
+								relatively safe assumption to make considering that abrupt changes in the disease are unlikely to occur over a short time-span (e.g., on the order of seconds). 
 								</p>
-								
 								<p>
 								<center>
-									<img src="../images/gif.gif" alt="description of gif" /> 									
+									<img src="./images/CLOCS/spatial_and_temporal_invarianceV2.png" /> 									
+								</center>
+								</p>
+								
+								<h4>
+								Contrastive Multi-Segment Coding (CMSC)
+								</h4>
+								<p>
+								We propose a family of contrastive learning methods, entitled CLOCS, that exploits spatial, temporal, and intra-patient invariances. Contrastive Multi-Segment Coding (CMSC), for example, exploits 
+								the temporal invariance of cardiac signals as follows (see visualization below). It first retrieves non-overlapping temporally-adjacent sub-segments of the cardiac signal and obtains their corresponding representations. 
+								We define such representations from the same patient to be a positive pair and attract them to one another. Given a representation of a cardiac signal from a completely different patient, we can form
+								a negative pair of representations which are repelled from one another. The intuition is that we are learning representations that are invariant to innocuous temporal changes in the cardiac signal. 
+								</p>
+								<p>
+								<center>
+									<img src="./images/CLOCS/CLOCS_GIF.gif" alt="description of gif" /> 									
 								</center>
 								</p>
 								
@@ -101,19 +118,41 @@
 								Linear Evaluation of Representations
 								</h4>
 								<p>
+								We show that our framework, CLOCS, outperforms both generic and domain-specific self-supervised pre-training methods. These include SimCLR, BYOL, and MT-SSL. 
+								</p>
+								<p>
+								<center>
+									<img src="./images/CLOCS/linear_results_table.png" /> 									
+								</center>
+								</p>
 								
 								<h4>
 								Doing More with Less Labelled Data
 								</h4>
+								<p>
+								We also show that CLOCS, when exposed to only 25% of the labelled data, allows networks to learn faster (fewer epochs) and better (stronger generalization performance)
+								than networks which are initialized randomly and exposed to 100% of the labelled data. This exemplifies CLOCS' ability to do more with less labelled data.
+								</p>
+								<p>
+								<center>
+									<img src="./images/CLOCS/more_with_less.png" /> 									
+								</center>
 								</p>
 								
 								<h4>
 								Learning Patient-Specific Representations
 								</h4>
 								<p>  
-									
+								When we plot the distribution of distances between representations of the same patient (Intra-patient) and those between representations of different patients (Inter-patient), 
+								we see that the former has a lower mean distance value than the latter. This indicates that CLOCS naturally leads to the learning of patient-specific representations. Such behaviour
+								is absent from other contrastive learning methods, such as SimCLR, as to be expected. 
 								</p>
-
+								<p>
+								<center>
+									<img src="./images/CLOCS/patient_specific_reps.png" /> 									
+								</center>
+								</p>
+								
 							    </br>
 							
 							</div>
