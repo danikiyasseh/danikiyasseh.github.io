@@ -1,0 +1,165 @@
+<!DOCTYPE HTML>
+<!--
+	Spectral by Pixelarity
+	pixelarity.com @pixelarity
+	License: pixelarity.com/license
+-->
+<html>
+	<head>
+		<link rel="icon" href="">
+		<title>Dani Kiyasseh | Publications </title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<!--[if lte IE 8]><script src="assets/js/ie/html5shiv.js"></script><![endif]-->
+		<link rel="stylesheet" href="../assets/css/main.css" />
+		<link rel="stylesheet" href="https://cdn.rawgit.com/jpswalsh/academicons/master/css/academicons.min.css">
+		<!--[if lte IE 8]><link rel="stylesheet" href="assets/css/ie8.css" /><![endif]-->
+		<!--[if lte IE 9]><link rel="stylesheet" href="assets/css/ie9.css" /><![endif]-->
+		<script type="text/x-mathjax-config">
+            MathJax.Hub.Config({
+                               tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}
+                               });
+        </script>
+        <script type="text/javascript"
+  			src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+		</script>
+		<script>
+		  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+		  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+		  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+		  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+		  ga('create', 'UA-97381584-1', 'auto');
+		  ga('send', 'pageview');
+
+		</script>
+
+		
+		
+
+	</head>
+  
+  
+	<body>
+
+		<!-- Page Wrapper -->
+			<div id="page-wrapper">
+
+				<!-- Header -->
+					<header id="header">
+						<h1><a href="../index.html">Dani Kiyasseh</a></h1>
+						<nav id="nav">
+							<ul>
+								<li class="special">
+									<a href="#menu" class="menuToggle"><span>Menu</span></a>
+									<div id="menu">
+										<ul>
+											<li><a href="index.html">Home</a></li>
+											<li><a href="index.html#aboutme">About Me</a></li>
+											<li><a href="index.html#experience">Experience</a></li>
+											<li>&mdash;</li>
+											<li><a href="../publications.html">Publications</a></li>
+											<li><a href="../datasets.html">Datasets</a></li>											
+										</ul>
+									</div>
+								</li>
+							</ul>
+						</nav>
+					</header>
+
+				<!-- Main -->
+					<article id="main">
+						<section class="wrapper style5">
+
+							<div class="inner">
+								<h2>
+								<center>
+									CLOCS: Contrastive Learning of Cardiac Signals Across Space, Time, and Patients
+								</center>
+								</h2>
+								
+								<p>
+								Within the healthcare industry, the rate of data generation now far exceeds the rate with which such data can be labelled by expert annotators (e.g., medical professionals). 
+								As such, it is characterized by the presence of abundant, unlabelled data, and scarce, labelled data. Exploiting this unlabelled data, at scale, can allow deep learning systems
+								to learn better (and faster) when achieving a clinical task with limited, labelled data. One way to exploit unlabelled data is via self-supervised pre-training, and more specifically
+								through the framework of contrastive learning. 
+								</p>
+								
+								<h4>
+								Temporal and Spatial Invariances in Cardiac Signals
+								</h4>
+								<p>
+								An invariance is an aspect of data, which, when changed, should not affect the underlying classification of that data. Cardiac signals, for example, can exhibit both temporal and spatial 
+								invariances. In this context, temporal invariance (visualized below) implies that temporally adjacent sub-segments of a cardiac signal can be safely assumed to map to the same pathology (disease). This is a 
+								relatively safe assumption to make considering that abrupt changes in the disease are unlikely to occur over a short time-span (e.g., on the order of seconds). 
+								</p>
+								<p>
+								<center>
+									<img src="./images/CLOCS/spatial_and_temporal_invarianceV2.png" style="width: 40vw;" /> 									
+								</center>
+								</p>
+								
+								<h4>
+								Contrastive Multi-Segment Coding (CMSC)
+								</h4>
+								<p>
+								We propose a family of contrastive learning methods, entitled CLOCS, that exploits spatial, temporal, and intra-patient invariances. Contrastive Multi-Segment Coding (CMSC), for example, exploits 
+								the temporal invariance of cardiac signals as follows (see visualization below). It first retrieves non-overlapping temporally-adjacent sub-segments of the cardiac signal and obtains their corresponding representations. 
+								We define such representations from the same patient to be a positive pair and attract them to one another. Given a representation of a cardiac signal from a completely different patient, we can form
+								a negative pair of representations which are repelled from one another. The intuition is that we are learning representations that are invariant to innocuous temporal changes in the cardiac signal. 
+								</p>
+								<p>
+								<center>
+									<img src="./images/CLOCS/CLOCS_GIF.gif" alt="description of gif" /> 									
+								</center>
+								</p>
+								
+								<h4>
+								Linear Evaluation of Representations
+								</h4>
+								<p>
+								We show that our framework, CLOCS, outperforms both generic and domain-specific self-supervised pre-training methods. These include SimCLR, BYOL, and MT-SSL. 
+								</p>
+								<p>
+								<center>
+									<img src="./images/CLOCS/linear_results_table.png" style="width: 35vw;" /> 									
+								</center>
+								</p>
+								
+								<h4>
+								Doing More with Less Labelled Data
+								</h4>
+								<p>
+								We also show that CLOCS, when exposed to only 25% of the labelled data, allows networks to learn faster (fewer epochs) and better (stronger generalization performance)
+								than networks which are initialized randomly and exposed to 100% of the labelled data. This exemplifies CLOCS' ability to do more with less labelled data.
+								</p>
+								<p>
+								<center>
+									<img src="./images/CLOCS/more_with_less.png"  style="width: 35vw;" /> 									
+								</center>
+								</p>
+								
+								<h4>
+								Learning Patient-Specific Representations
+								</h4>
+								<p>  
+								When we plot the distribution of distances between representations of the same patient (Intra-patient) and those between representations of different patients (Inter-patient), 
+								we see that the former has a lower mean distance value than the latter. This indicates that CLOCS naturally leads to the learning of patient-specific representations. Such behaviour
+								is absent from other contrastive learning methods, such as SimCLR, as to be expected. 
+								</p>
+								<p>
+								<center>
+									<img src="./images/CLOCS/patient_specific_reps.png"  style="width: 45vw;" /> 									
+								</center>
+								</p>
+								
+							    </br>
+							
+							</div>
+						</section>
+					</article>
+    
+		
+  	</body>
+	
+</html>
