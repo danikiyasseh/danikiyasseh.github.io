@@ -1,1 +1,194 @@
+<!DOCTYPE HTML>
+<!--
+	Spectral by Pixelarity
+	pixelarity.com @pixelarity
+	License: pixelarity.com/license
+-->
+<html>
+	<head>
+		<link rel="icon" href="">
+		<title>Dani Kiyasseh | Blog - CROCS </title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<!--[if lte IE 8]><script src="assets/js/ie/html5shiv.js"></script><![endif]-->
+		<link rel="stylesheet" href="../../assets/css/main.css" />
+		<link rel="stylesheet" href="https://cdn.rawgit.com/jpswalsh/academicons/master/css/academicons.min.css">
+		<!--[if lte IE 8]><link rel="stylesheet" href="assets/css/ie8.css" /><![endif]-->
+		<!--[if lte IE 9]><link rel="stylesheet" href="assets/css/ie9.css" /><![endif]-->
+		<script type="text/x-mathjax-config">
+            MathJax.Hub.Config({
+                               tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}
+                               });
+        </script>
+        <script type="text/javascript"
+  			src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+		</script>
+		<script>
+		  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+		  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+		  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+		  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
 
+		  ga('create', 'UA-97381584-1', 'auto');
+		  ga('send', 'pageview');
+
+		</script>
+
+		
+		
+
+	</head>
+  
+  
+	<body>
+
+		<!-- Page Wrapper -->
+			<div id="page-wrapper">
+
+				<!-- Header -->
+					<header id="header">
+						<h1><a href="../../index.html">Dani Kiyasseh</a></h1>
+						<nav id="nav">
+							<ul>
+								<li class="special">
+									<a href="#menu" class="menuToggle"><span>Menu</span></a>
+									<div id="menu">
+										<ul>
+											<li><a href="../../index.html">Home</a></li>
+											<li><a href="../../index.html#aboutme">About Me</a></li>
+											<li><a href="../../index.html#experience">Experience</a></li>
+											<li>&mdash;</li>
+											<li><a href="../../publications.html">Publications</a></li>
+											<li><a href="../../datasets.html">Datasets</a></li>											
+										</ul>
+									</div>
+								</li>
+							</ul>
+						</nav>
+					</header>
+
+				<!-- Main -->
+					<article id="main">
+						<section class="wrapper style5">
+
+							<div class="inner">
+								<h2>
+								<center>
+									CROCS: Clustering and Retrieval of Cardiac Signals Based on Patient Disease Class, Sex, and Age
+								</center>
+								</h2>
+								
+								<p>
+								<center>
+									Sunday, October 3rd, 2021
+								</center>
+								</p>
+								
+								<p>
+                Clinical databases are commonly used by stakeholders within healthcare to search for relevant data points (e.g., medical records) and extract information (e.g., patient attributes) 
+                from such data points. For example, cardiologists extract disease information from cardiac signals, researchers search for relevant patients to enroll in a clinical trial, and medical 
+                educators search for examplar data points with which to educate the next generation of medical students. This manual search-and-extract process, however, is becoming increasingly intractable
+                to achieve in light of the rapid growth of large-scale clinical databases. The presence of unlabelled data points in these databases further compounds this challenge. One way to address
+                this challenge is via the frameworks of clustering and retrieval, as explained next. 
+								</p>
+								
+								<h4>
+								Clustering and Retrieval
+								</h4>
+								<p>
+                To extract information from unlabelled data points, we can exploit the framework of clustering. In this setting, an unlabelled data point is assigned to the cluster centroid to which it is closest. 
+                Now, if that cluster centroid happens to be associated with a set of patient attributes (e.g., disease class, sex, and age), then we can annotate this unlabelled data point with such attributes.
+                As for the task of retrieval, this would involve a query, associated with a set of patient attributes, that searches through the clinical database and retrieves unlabelled data points to which it is
+                most similar. In this way, we have managed to retrieve unlabelled data points that are deemed relevant for our use-case (e.g., clinical trial enrollment). Our work focuses on learning these cluster
+                centroids and query embeddings. 
+								</p>
+								<p>
+								<center>
+									<img src="./images/clustering_and_retrieval.png" style="width: 40vw;" /> 									
+								</center>
+								</p>
+								
+								<h4>
+								CROCS Framework
+								</h4>
+								<p>
+								In our NeurIPS 2021 paper, we proposed a supervised contrastive learning framework, entitled CROCS, that performs both the clustering and retrieval of cardiac signals based on multiple patient attributes
+                including disease class, sex, and age. To understand how this works, let us consider the visualization below. For an electrocardiogram (ECG) signal associated with a set of patient attributes, we first extract
+                its representation by passing it through a feature extractor. This representation is then attracted to (or repelled from) embeddings, which we refer to as clinical prototypes, that are associated with a set of
+                patient attributes. Specifically, it is most strongly attracted to clinical prototypes reflecting the same exact set of patient attributes, and less attracted to those with some overlap in the patient attributes.
+                At the same time, the representation is repelled from clinical prototypes associated with a different disease class. In doing so, we learn embeddings that are attribute-specific and which can serve as either 
+                centroids in the clustering setting or queries in the retrieval setting. 
+                  
+								</p>
+								<p>
+								<center>
+									<img src="./images/CROCS_GIF.gif" alt="description of gif" /> 									
+								</center>
+								</p>
+
+								<h4>
+								Interpretable Clinical Prototypes 
+								</h4>
+								<p>
+                We also impose an additional constraint on the clinical prototypes to increase their level of interpretability. More precisely, we encourage prototypes that are associated with a similar set of patient attributes
+                to be more similar to one another. For example, prototypes that share the same disease class and sex group but differ according to the group should be more similar to one another than those from distinct sex and 
+                age groups. Doing so results in the visualization below, where we see that clinical prototypes adopt a semantically meaningful arrangement. 
+								</p>
+								<p>
+								<center>
+									<img src="./images/semantic_arrangement.png" /> 									
+								</center>
+								</p>
+								
+								<h4>
+								Visualizing Clinical Prototypes
+								</h4>
+								<p>
+								When we project the clinical prototypes (and the data points in an unseen held-out set) onto a low-dimensional space (e.g., via UMAP), we arrive at the visualization below. We see that these clinical prototypes
+                (large, coloured shapes) are disease class-specific and align well with the class labels of the data points in the unseen held-out set. This bodes well for their eventual use in the clustering and retrieval
+                settings. 
+								</p>
+								<p>
+								<center>
+									<img src="./images/chapman_tsne.png" style="width: 30vw;" /> 									
+								</center>
+								</p>
+								
+								<h4>
+								Clustering Results
+								</h4>
+								<p>
+								Exploiting the learned clinical prototypes as centroids of attribute-specific clusters leads to the following results. Here, we compare their performance to that of baseline methods when clustering multiple 
+                patient attributes (namely, cardiac arrhythmia disease class, sex, and age). In all cases, we find that CROCS outperforms the state-of-the-art method, DTC, across datasets and attributes.
+								</p>
+								<p>
+								<center>
+									<img src="./images/clustering_results.png"  style="width: 30vw;" /> 									
+								</center>
+								</p>
+								
+								<h4>
+								Retrieval Results
+								</h4>
+								<p>  
+								In the retrieval setting, we exploit the learned clinical prototypes as queries to search through a database of unlabelled cardiac signals and retrieve those which are most similar. Doing so for a particular
+                clinical prototype (associated with sinus rhythm disease class, male sex group, and the age group under 25 years old) leads to the results below. We find that this prototype is closer to unseen data points which
+                belong to the same disease class than to those from a different class. This suggests that is likely to retrieve relevant cardiac signals, a claim supported by the relevance of the six closest ECG signals 
+                (green bounding boxes indicate relevant cardiac signals). Such behaviour is in stark contrast to queries learned by DTC, which struggle to retrieve relevant cardiac signals. 
+								</p>
+								<p>
+								<center>
+									<img src="./images/closest_signals.png"  style="width: 45vw;" /> 									
+								</center>
+								</p>
+								
+							    </br>
+							
+							</div>
+						</section>
+					</article>
+    
+		
+  	</body>
+	
+</html>
