@@ -95,7 +95,7 @@
 								obstacles; the rapid growth of large-scale clinical databases, and the increased prevalence of unlabelled data points within such databases. Whereas the former implies that the existing 
 								manual search-and-extract process scales poorly to large databases, the latter deems the search process intractable to begin with. For example, how would researchers go about searching 
 								for relevant patients to include in a clinical trial when such patients are unlabelled with patient attribute information? We propose to address these challenges via the frameworks of 
-								<a id='overwhite' href="https://en.wikipedia.org/wiki/Cluster_analysis">clustering</a> and <a id='overwhite' href="https://en.wikipedia.org/wiki/Information_retrieval">retrieval</a>, as explained next. 
+									<a id='overwhite' href="https://en.wikipedia.org/wiki/Cluster_analysis"><u>clustering</u></a> and <a id='overwhite' href="https://en.wikipedia.org/wiki/Information_retrieval"><u>retrieval</u></a>, as explained next. 
 								</p>
 								
 								<h4>
@@ -110,7 +110,7 @@
 								</p>
 								To retrieve relevant data points from a clinical database, we exploit an information retrieval approach. In this setting, we learn query embeddings (read: vectors), each of which is associated with a unique set of 
 								patient attributes. We then use this query to search through the clinical databases, identify unlabelled data points to which it is most similar, and thus retrieve those that are most relevant. This capability allows
-								stakeholders to retrieve patients from clinical databases that otherwise would have been overlooked, a pertinent <a id='overwhite' href="https://hbr.org/2021/06/addressing-demographic-disparities-in-clinical-trials#:~:text=Clinical%20trials%20primarily%20enroll%20white,16%25%20of%20patients%20in%20trials.">challenge for clinical trial enrollment</a>. 
+								stakeholders to retrieve patients from clinical databases that otherwise would have been overlooked, a pertinent <a id='overwhite' href="https://hbr.org/2021/06/addressing-demographic-disparities-in-clinical-trials#:~:text=Clinical%20trials%20primarily%20enroll%20white,16%25%20of%20patients%20in%20trials."><u>challenge for clinical trial enrollment</u></a>. 
 								As such, our approach can, for example, allow researchers to recruit a more demographically diverse patient population for clinical trials, thus strengthening the generalizability of the outcomes of such trials. 
 								</p>
 								<p>		
@@ -127,13 +127,15 @@
 								CROCS Framework
 								</h4>
 								<p>
-								In our NeurIPS 2021 <a id='overwhite' href="https://arxiv.org/abs/2011.14230">paper</a>, we proposed to learn the aforementioned clinical prototypes via a supervised contrastive learning framework, entitled CROCS. To better understand 
+									In our NeurIPS 2021 <a id='overwhite' href="https://arxiv.org/abs/2011.14230"><u>paper</u></a>, we proposed to learn the aforementioned clinical prototypes via a supervised contrastive learning framework, entitled CROCS. To better understand 
 								how this works, let us consider the visualization below. For an electrocardiogram (ECG) signal associated with a set of patient attributes, we first extract
 								its representation by passing it through a feature extractor. This representation is then attracted to (or repelled from) the clinical prototypes which are associated with a set of
 								patient attributes. Specifically, it is most strongly attracted to clinical prototypes reflecting the same exact set of patient attributes, and less attracted to those with some overlap in the patient attributes.
-								At the same time, the representation is repelled from clinical prototypes associated with a different disease class. In doing so, we learn embeddings that are attribute-specific and which can serve as either 
+								At the same time, the representation is repelled from clinical prototypes associated with a different disease class. 
+								</p>	
+								<p>		
+								In doing so, we learn embeddings that are attribute-specific and which can serve as either 
 								centroids in the clustering setting or queries in the retrieval setting. Note that clinical prototypes are embeddings that are learned in an end-to-end manner, similar to how network parameters would ordinarily be learned. 
-                  
 								</p>
 								<p>
 								<center>
@@ -204,7 +206,7 @@
 								Acknowledgements
 								</h4>
 								<p>  
-								We would like to thank Antong Chen for reviewing a preliminary version of the associated manuscript. We would also like to thank <a id='overwhite' href="https://www.youtube.com/watch?v=uQk9VTLvzLA">Nagat Al-Saghira</a> and <a id='overwhite' href="https://www.youtube.com/watch?v=C6SPcxQdK8M">Mohammed Abdel Wahab</a> for lending us their voice. 
+								We would like to thank Antong Chen for reviewing a preliminary version of the associated manuscript. We would also like to thank <a id='overwhite' href="https://www.youtube.com/watch?v=uQk9VTLvzLA"><u>Nagat Al-Saghira</u></a> and <a id='overwhite' href="https://www.youtube.com/watch?v=C6SPcxQdK8M"><u>Mohammed Abdel Wahab</u></a> for lending us their voice. 
 								</p>
 								
 							    </br>
