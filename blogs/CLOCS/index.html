@@ -127,7 +127,9 @@
 								A particular member of this family, Contrastive Multi-Segment Coding (CMSC), exploits the aforementioned temporal invariance of cardiac signals as follows (see visualization below). It first retrieves non-overlapping 
 								temporally-adjacent sub-segments of the cardiac signal and obtains their corresponding representations (read: vectors that summarize the cardiac signal). We define such representations from the same patient to be a 
 								positive pair and attract them to one another. Given a representation of a cardiac signal from a completely different patient, we can form a negative pair of representations which are repelled from one another. 
-								The intuition is that our framework allows or the learning of representations that are invariant to innocuous temporal changes in the cardiac signal. 
+								</p>
+								<p>
+								The intuition is that our framework allows for the learning of representations that are invariant to innocuous temporal changes in the cardiac signal. 
 								</p>
 								<p>
 								<center>
@@ -168,7 +170,7 @@
 								Doing More with Less Labelled Data
 								</h4>
 								<p>
-								Going further, we wanted to show that CLOCS allows networks to do more (read: learn faster and better) with less (read: fewer labelled data points). To that end, we illustrate the area under the receiver opeating
+								Going further, we wanted to show that CLOCS allows networks to do more (read: learn faster and better) with less (read: fewer labelled data points). To that end, we illustrate the area under the receiver operating
 								characteristic curve (AUC) for data points in the validation set during training for two distinct networks. One network is initialized with random parameters (shown in blue) and is exposed to 100% of the labelled data. 
 								The other network is initialized via CMSC (shown in green) and is exposed to only 25% of the labelled data (i.e., a 4x reduction). We show that networks initialized via CMSC learn faster (read: fewer epochs) and better (read: 
 								stronger generalization performance) than networks which are initialized randomly, despite a 4-fold reduction in the amount of labelled data. Such a finding exemplifies CLOCS' ability to do more with less labelled data.
@@ -200,11 +202,7 @@
 								<p>  
 								We would like to thank <a href="https://www.youtube.com/watch?v=LQUB6vpiAS8"><u>Fairuz</u></a> and <a href="https://www.youtube.com/watch?v=1FDqsBdIXOk"><u>Asmahan</u></a> for lending us their voice. 
 								</p>
-								<p>
-								<center>
-									<img src="./images/patient_specific_reps.png"  style="width: 45vw;" /> 									
-								</center>
-								</p>
+								
 								
 							    </br>
 							
