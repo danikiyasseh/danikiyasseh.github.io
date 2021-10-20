@@ -1639,6 +1639,28 @@
 			top: 0;
 		}
 
+
+		@media screen and (max-width: 1680px) {
+
+			header.major img {
+				display: block;
+				margin: 0 auto;
+				width: 40%;
+			}
+
+		}
+
+		@media screen and (max-width: 736px) {
+
+			header.major img {
+				display: block;
+				margin: 0 auto;
+				width: 80%;
+			}
+
+		}
+
+
 		@media screen and (max-width: 736px) {
 
 			header.major {
