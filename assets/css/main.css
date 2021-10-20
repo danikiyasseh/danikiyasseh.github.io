@@ -4303,8 +4303,41 @@
 
 				.image.centered img {
 					margin: 0 auto;
-					width: auto;
+/* 					width: auto; */
+					width: 300px;
 				}
+
+		@media screen and (max-width: 1680px) {
+
+			.image.centered img {
+				width: 40%;
+			}
+
+		}
+
+		@media screen and (max-width: 1280px) {
+
+			.image.centered img {
+				width: 40%;
+			}
+
+		}
+
+		@media screen and (max-width: 980px) {
+
+			.image.centered img {
+				width: 80%;
+			}
+
+		}
+
+		@media screen and (max-width: 736px) {
+
+			.image.centered img {
+				width: 80%;
+			}
+
+		}
 
 	/* List */
 
