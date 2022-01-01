@@ -4359,6 +4359,15 @@
 					width: 300px;
 				}
 
+		
+		@media screen and (max-width: 1980px) {
+
+			.image.centered img {
+				width: 40%;
+			}
+
+		}
+
 		@media screen and (max-width: 1680px) {
 
 			.image.centered img {
