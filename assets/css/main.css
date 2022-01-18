@@ -2621,6 +2621,19 @@
 		}
 
 
+		@media screen and (max-width: 2000px) {
+
+			.spotlight .image {
+				width: 45%;
+			}
+
+			.spotlight .content {
+				width: 55%;
+
+			}
+
+		}
+
 		@media screen and (max-width: 1450px) {
 
 			.spotlight .image {
