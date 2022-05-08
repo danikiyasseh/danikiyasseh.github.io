@@ -68,34 +68,34 @@
 						</nav>
 					</header>
 
-				<!-- Main -->
-					<article id="main">
-						<section class="wrapper style5">
+	<!-- Main -->
+	<article id="main">
+		<section class="wrapper style5">
 
-							<div class="inner">
-								<h2>
-								<center>
-									Quantification of Robotic Surgeries with Vision-Based Deep Learning 
-								</center>
-								</h2>
-								
-								<p>
-								<center>
-									Sunday, May 9th, 2022
-								</center>
-								</p>
-								
-								<p>
-								<center>
-									Dani Kiyasseh
-								</center>
-								</p>
-								
-								<p>
-								It is estimated that 200 million surgeries are performed annually and worldwide. Around 15% of these surgical procedures are performed with the assistance of a robotic device. 
-                Such robotic surgeries have proven to be effective in reducing intra-operative complications (read: what goes wrong during surgery), shortening the post-operative recovery time for patients
+			<div class="inner">
+			<h2>
+			<center>
+				Quantification of Robotic Surgeries with Vision-Based Deep Learning 
+			</center>
+			</h2>
+
+			<p>
+			<center>
+				Sunday, May 9th, 2022
+			</center>
+			</p>
+
+			<p>
+			<center>
+				Dani Kiyasseh
+			</center>
+			</p>
+
+		<p>
+		It is estimated that 200 million surgeries are performed annually and worldwide. Around 15% of these surgical procedures are performed with the assistance of a robotic device. 
+                Such robotic surgeries have proven to be effective in reducing intra-operative complications (read: fewer errors during surgery), shortening the post-operative recovery time for patients
                 (read: patients get better faster), and improving long-term patient outcomes. 
-								</p>
+		</p>
                 
                 <h4>
                 The Surgical Triad
@@ -108,9 +108,9 @@
                   of intra-operative surgical activity, post-operative patient outcomes, and surgeon feedback as the <i>surgical triad</i>. 
                   </p>
                 
-                	<center>
-			<img src="./images/surgical_triad.gif" style="width: 50%" /> 									
-		  	</center>
+		<center>
+		<img src="./images/surgical_triad.gif" style="width: 60%" /> 									
+		</center>
                 
                 <h4>
                 The Core Elements of Surgery
@@ -126,22 +126,22 @@
                   steps can be executed through a sequence of manoeuvres, or gestures, and at a different skill level depicting low- or high-quality activity. Together, these elements reflect the <i>how</i> of surgery.  
                   </p>
                   
-			<center>
-			<img src="./images/elements_of_surgery.gif" /> 									
-			</center>
+		<center>
+		<img src="./images/elements_of_surgery.gif" style="width: 60%" /> 									
+		</center>
                 
                 <h4>
                 Quantifying the Core Elements of Surgery via Roboformer
                 </h4>
                   <p>
-                  In our research, we design a deep learning framework, entitled Roboformer, that quantifies the core elements of surgery in an objective, reliable, and scalable manner.
+		  In our <a href=" ">research</a>, we design a deep learning framework, entitled Roboformer, that quantifies the core elements of surgery in an objective, reliable, and scalable manner.
                   This framework is <i>unified</i> in that the same network architecture can be used, without any modifications, to achieve multiple machine learning tasks (i.e., quantify multiple elements of surgery).
                   It is also <i>vision-based</i> in that is depends exclusively on videos recorded during surgery, which are straightforward to acquire from surgical robotic devices, to perform these machine learning tasks. 
                   </p>
 
-			<center>
-			<img src="./images/roboformer.gif" /> 									
-			</center>
+		<center>
+		<img src="./images/roboformer.gif" style="width: 60%" /> 									
+		</center>
 								
 		<h4>
                 Phase Recognition
@@ -159,10 +159,9 @@
 		(AUC > 0.90) achieved when the framework was deployed on USC data, the latter is supported by the strong performance (AUC > 0.90) when it was deployed on data from St. Antonius Hospital. 
 		</p>
 				
-		% include image of RARP over time
-			<center>
-			<img src="./images/placeholder.pdf" /> 									
-			</center>					
+		<center>
+		<img src="./images/vua_phase_results.pdf" /> 									
+		</center>					
 								
 		<h4>
                 Gesture Classification
@@ -171,9 +170,18 @@
 		Can we reliably distinguish between surgical gestures?  
 		</h5>	
 		<p>
-			
+		We also trained our framework to distinguish between surgical gestures (read: manoeuvres) commonly performed by surgeons. These reflect the decisions made by a surgeon over time about how to execute a particular 
+		surgical step. Once again, our framework was trained on data from USC and deployed on unseen videos of the same surgery (RARP) from USC and St. Antonius Hospital. In this setting, we also deployed our framework
+		on videos from an entirely different surgical procedure, known as a robot-assisted partial nephrectomy (RAPN), in which a portion of a patient's kidney is removed due to the presence of cancerous tissue.
 		</p>
-								
+		<p>
+		We show that our framework generalizes to unseen videos, surgeons, medical centres, and surgical procedures. This is evident by its strong performance (see below) across the board in all of these settings. 
+		</p>
+			
+		<center>
+		<img src="./images/gesture_classification_results.pdf" /> 									
+		</center>
+				
 		<h4>
                 Skills Assessment
                 </h4>	
@@ -181,9 +189,20 @@
 		Can we reliably distinguish between low- and high-skill activity?  
 		</h5>	
 		<p>
-			
+		We then trained our framework to delineate surgical activity depicting low and high technical skill. This activity ranged from how the surgeon handled a needle during the suturing step (needle handling) and how the
+		surgeon drove the needle through the tissue (needle driving). For needle handling, a low-skill assessment was based on the number of times a surgeon had to reposition their grasp of the needle (more repositions = lower quality). 
+		For needle driving, a low-skill assessment was based on the smoothness with which it was performed (less smooth = lower quality). As before, we trained our framework on data from USC and deployed it on data from St. Antonius Hospital. 
 		</p>
-								
+		<p>
+		We show that our framework, once again, generalizes to unseen videos, surgeons, and medical centres. This is evident by its strong performance (AUC > 0.80) across the skills assessment tasks and clinical settings. 
+		Our framework (which is based on a Transformer architecture) also naturally lends itself to explainable findings. Below, we illustrate the relative importance of individual frames in a surgical video, as identified by the framework, and
+		show that the frames with the highest level of importance do indeed align with the ground-truth low-skill assessment of the video segments.
+		</p>
+			
+		<center>
+		<img src="./images/skills_assessment_results.pdf" /> 									
+		</center>
+				
 		<h4>
                 Combining Elements of Surgery
                 </h4>		
@@ -199,17 +218,18 @@
 		As such, a surgeon can now better identify, and learn to avoid, problematic intra-operative surgical behaviour in the future.
 		</p>					
 
-<!-- 		<h4>
+		<h4>
 		Acknowledgements
 		</h4>
 		<p>  
-		We would like to thank Antong Chen for reviewing a preliminary version of the associated manuscript. We would also like to thank <a id='overwhite' href="https://www.youtube.com/watch?v=uQk9VTLvzLA"><u>Nagat Al-Saghira</u></a> and <a id='overwhite' href="https://www.youtube.com/watch?v=C6SPcxQdK8M"><u>Mohammed Abdel Wahab</u></a> for lending us their voice. 
-		</p> -->
+		We would also like to thank <a id='overwhite' href="https://www.youtube.com/watch?v=ZFkV6mwHhX0"><u>Wadih El Safi</u></a> for lending us his voice. 
+		</p>
+				
 		</br>
 							
-							</div>
-						</section>
-					</article>
+					</div>
+				</section>
+			</article>
     
 		
 			</div>
