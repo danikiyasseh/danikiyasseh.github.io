@@ -110,8 +110,8 @@
                 
                   % include image of surgical triad
                 	<center>
-									<img src="./images/clustering_and_retrieval.png" style="width: 40vw;" /> 									
-								  </center>
+			<img src="./images/clustering_and_retrieval.png" style="width: 40vw;" /> 									
+		  	</center>
                 
                 <h4>
                 The Core Elements of Surgery
@@ -128,9 +128,9 @@
                   </p>
                   
                   % include image of RARP over time
-                	<center>
-									<img src="./images/elements_of_surgery.gif" /> 									
-								  </center>
+			<center>
+			<img src="./images/elements_of_surgery.gif" /> 									
+			</center>
                 
                 <h4
                 Quantifying the Core Elements of Surgery via Roboformer
@@ -141,15 +141,73 @@
                   It is also <i>vision-based</i> in that is depends exclusively on videos recorded during surgery, which are straightforward to acquire from surgical robotic devices, to perform these machine learning tasks. 
                   </p>
 
-
-<!-- 								<h4>
-								Acknowledgements
-								</h4>
-								<p>  
-								We would like to thank Antong Chen for reviewing a preliminary version of the associated manuscript. We would also like to thank <a id='overwhite' href="https://www.youtube.com/watch?v=uQk9VTLvzLA"><u>Nagat Al-Saghira</u></a> and <a id='overwhite' href="https://www.youtube.com/watch?v=C6SPcxQdK8M"><u>Mohammed Abdel Wahab</u></a> for lending us their voice. 
-								</p> -->
+			<center>
+			<img src="./images/roboformer.gif" /> 									
+			</center>
 								
-							    </br>
+		<h4>
+                Phase Recognition
+                </h4>
+		<h5>
+		Can we reliably distinguish between surgical steps?  
+		</h5>	
+		<p>
+		We trained our framework to distinguish between three distinct surgical sub-phases (read: steps): needle handling, needle driving, and needle withdrawal. These reflect periods of time during which a surgeon
+		first handles a needle to drive it through some tissue before withdrawing it as part of the suturing process. Specifically, our framework was trained on data from the University of Southern California (USC)
+		and deployed on unseen videos from USC and on unseen videos from a completely different medical centre (St. Antonius Hospital located in Gronau, Germany). 
+		</p>
+		<p>
+		We show that our framework generalizes (read: performs well) to unseen surgical videos and those from unseen surgeons across distinct medical centres. While the former is evident by the strong performance 
+		(AUC > 0.90) achieved when the framework was deployed on USC data, the latter is supported by the strong performance (AUC > 0.90) when it was deployed on data from St. Antonius Hospital. 
+		</p>
+				
+		% include image of RARP over time
+			<center>
+			<img src="./images/placeholder.pdf" /> 									
+			</center>					
+								
+		<h4>
+                Gesture Classification
+                </h4>
+		<h5>
+		Can we reliably distinguish between surgical gestures?  
+		</h5>	
+		<p>
+			
+		</p>
+								
+		<h4>
+                Skills Assessment
+                </h4>	
+		<h5>
+		Can we reliably distinguish between low- and high-skill activity?  
+		</h5>	
+		<p>
+			
+		</p>
+								
+		<h4>
+                Combining Elements of Surgery
+                </h4>		
+		<h5>
+		How do we practically leverage the findings of this study?  
+		</h5>	
+		<p>
+		Thus far, we have presented our machine learning tasks, which quantify the various elements of surgery, as independent of one another. 
+		Considering these tasks in unison, however, suggests that our framework can provide a surgeon with reliable, objective, and scalable feedback of the following form: 
+		"when completing stitch number 3 of the suturing step, your needle handling (what - <i>sub-phase</i>) was executed poorly (how - <i>skill</i>). 
+		This is likely due to your activity in the first and final quarters of the needle handling sub-phase (why - <i>attention</i>)}. 
+		Such granular and temporally-localized feedback allows a surgeon to better focus on the element of surgery that requires improvement. 
+		As such, a surgeon can now better identify, and learn to avoid, problematic intra-operative surgical behaviour in the future.
+		</p>					
+
+<!-- 		<h4>
+		Acknowledgements
+		</h4>
+		<p>  
+		We would like to thank Antong Chen for reviewing a preliminary version of the associated manuscript. We would also like to thank <a id='overwhite' href="https://www.youtube.com/watch?v=uQk9VTLvzLA"><u>Nagat Al-Saghira</u></a> and <a id='overwhite' href="https://www.youtube.com/watch?v=C6SPcxQdK8M"><u>Mohammed Abdel Wahab</u></a> for lending us their voice. 
+		</p> -->
+		</br>
 							
 							</div>
 						</section>
