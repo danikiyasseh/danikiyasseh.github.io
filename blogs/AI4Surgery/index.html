@@ -110,7 +110,8 @@
 			</p>
 
 		<p>
-		It is estimated that 200 million surgeries are performed annually and worldwide. Around 15% of these surgical procedures are performed with the assistance of a robotic device. 
+		It is estimated that worldwide <a id='overwhite' href="https://www.thelancet.com/journals/lancet/article/PIIS0140-6736(15)60160-X/fulltext">300 million surgeries are performed annually</a>. 
+		Around 15% of these surgical procedures are performed with the assistance of a robotic device. 
                 Such robotic surgeries have proven to be effective in reducing intra-operative complications (read: fewer errors during surgery), shortening the post-operative recovery time for patients
                 (read: patients get better faster), and improving long-term patient outcomes. 
 		</p>
@@ -144,7 +145,7 @@
                   </p>
                   
                   <p>
-                  The core elements of surgery can be understood by considering a particular robotic surgery (figure below), known as a robot-assisted radical prostatectomy (RARP), in which the prostate gland is removed from a patient's body
+                  The core elements of surgery can be understood by considering a particular robotic surgery (figure below), known as a <a id='overwhite' href="https://www.hopkinsmedicine.org/health/treatment-tests-and-therapies/robotic-prostatectomy">robot-assisted radical prostatectomy</a> (RARP), in which the prostate gland is removed from a patient's body
                   due to the presence of cancerous tissue. This procedure consists of multiple <i>steps</i> over time, such as dissection (read: cutting tissue) and suturing (read: joining tissue), which reflect the <i>wha</i> of surgery. Each of these 
                   steps can be executed through a sequence of manoeuvres, or gestures, and at a different skill level depicting low- or high-quality activity. Together, these elements reflect the <i>how</i> of surgery.  
                   </p>
@@ -179,7 +180,7 @@
 		</p>
 		<p>
 		We show that our framework generalizes (read: performs well) to unseen surgical videos and those from unseen surgeons across distinct medical centres. While the former is evident by the strong performance 
-		(AUC > 0.90) achieved when the framework was deployed on USC data, the latter is supported by the strong performance (AUC > 0.90) when it was deployed on data from St. Antonius Hospital. 
+		(AUC > 0.90) achieved when the framework was deployed on USC data, the latter is supported by the strong performance (AUC > 0.85) when it was deployed on data from St. Antonius Hospital. 
 		</p>
 				
 		<center>
@@ -235,8 +236,14 @@
 		<p>
 		Thus far, we have presented our machine learning tasks, which quantify the various elements of surgery, as independent of one another. 
 		Considering these tasks in unison, however, suggests that our framework can provide a surgeon with reliable, objective, and scalable feedback of the following form: 
-		"when completing stitch number 3 of the suturing step, your needle handling (what - <i>sub-phase</i>) was executed poorly (how - <i>skill</i>). 
+		</p>
+				
+		<p style="background-color: #eff5fb; padding: 10px; border: 1px solid blue;">
+		When completing stitch number 3 of the suturing step, your needle handling (what - <i>sub-phase</i>) was executed poorly (how - <i>skill</i>). 
 		This is likely due to your activity in the first and final quarters of the needle handling sub-phase (why - <i>attention</i>). 
+		</p>
+			
+		<p>
 		Such granular and temporally-localized feedback allows a surgeon to better focus on the element of surgery that requires improvement. 
 		As such, a surgeon can now better identify, and learn to avoid, problematic intra-operative surgical behaviour in the future.
 		</p>					
