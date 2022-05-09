@@ -34,6 +34,24 @@
 
 		</script>
 
+		<style>
+		* {
+		  box-sizing: border-box;
+		}
+
+		.column {
+		  float: left;
+		  width: 50%;
+		  padding: 5px;
+		}
+
+		/* Clearfix (clear floats) */
+		.row::after {
+		  content: "";
+		  clear: both;
+		  display: table;
+		}
+		</style>
 		
 		
 
@@ -108,9 +126,14 @@
                   of intra-operative surgical activity, post-operative patient outcomes, and surgeon feedback as the <i>surgical triad</i>. 
                   </p>
                 
-		<center>
-		<img src="./images/surgical_triad.gif" style="width: 60%" /> 									
-		</center>
+		<div class="row">
+		  <div class="column">
+		    <img src="stitch.gif" style="width:100%">
+		  </div>
+		  <div class="column">
+		    <img src="./images/surgical_triad.gif" style="width:100%">
+		  </div>
+		</div>
                 
                 <h4>
                 The Core Elements of Surgery
