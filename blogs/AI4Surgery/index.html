@@ -122,7 +122,7 @@
                   <p>
                   During a surgical procedure, robotic or otherwise, a surgeon must often navigate critical anatomical structures, such as nerves and blood vessels, avoid harming healthy tissue, and actively avoid 
                   potential complications, all the while tending to the main task at hand. This complexity is juxtaposed with the simplicity of the overarching goal of surgery: 
-                  to improve post-operative surgical and patient outcomes. <a href="https://www.nejm.org/doi/full/10.1056/NEJMsa1300625"><u>Recent studies</u></a> have in fact shown that intra-operative surgical activity (<i>what</i> and <i>how</i> a surgical procedure is performed) can have a 
+                  to improve post-operative surgical and patient outcomes. <a id='overwhite' href="https://www.nejm.org/doi/full/10.1056/NEJMsa1300625"><u>Recent studies</u></a> have in fact shown that intra-operative surgical activity (<i>what</i> and <i>how</i> a surgical procedure is performed) can have a 
                   direct impact on long-term patient outcomes. Knowledge of this relationship can guide the provision of feedback to surgeons in order to modulate their future behaviour. We refer to the three components 
                   of intra-operative surgical activity, post-operative patient outcomes, and surgeon feedback as the <i>surgical triad</i>. 
                   </p>
@@ -158,7 +158,7 @@
                 Quantifying the Core Elements of Surgery via Roboformer
                 </h4>
                   <p>
-		  In our <a id='overwhite' href="https://arxiv.org/abs/2205.03028"><u>research</u></a>, we design a deep learning framework, entitled Roboformer, that quantifies the core elements of surgery in an objective, reliable, and scalable manner.
+		  In our most recent <a id='overwhite' href="https://arxiv.org/abs/2205.03028"><u>research</u></a>, we design a deep learning framework, entitled Roboformer (a portmanteau of Robot and Transformer), that quantifies the core elements of surgery in an objective, reliable, and scalable manner.
                   This framework is <i>unified</i> in that the same network architecture can be used, without any modifications, to achieve multiple machine learning tasks (i.e., quantify multiple elements of surgery).
                   It is also <i>vision-based</i> in that is depends exclusively on videos recorded during surgery, which are straightforward to acquire from surgical robotic devices, to perform these machine learning tasks. 
                   </p>
@@ -180,7 +180,8 @@
 		</p>
 		<p>
 		We show that our framework generalizes (read: performs well) to unseen surgical videos and those from unseen surgeons across distinct medical centres. While the former is evident by the strong performance 
-		(AUC > 0.90) achieved when the framework was deployed on USC data, the latter is supported by the strong performance (AUC > 0.85) when it was deployed on data from St. Antonius Hospital. 
+		(AUC > 0.90) achieved when the framework was deployed on USC data, the latter is supported by the strong performance (AUC > 0.85) when it was deployed on data from St. Antonius Hospital. We defer an explanation 
+		of the ablation study and results to the manuscript.
 		</p>
 				
 		<center>
@@ -196,7 +197,7 @@
 		<p>
 		We also trained our framework to distinguish between surgical gestures (read: manoeuvres) commonly performed by surgeons. These reflect the decisions made by a surgeon over time about how to execute a particular 
 		surgical step. Once again, our framework was trained on data from USC and deployed on unseen videos of the same surgery (RARP) from USC and St. Antonius Hospital. In this setting, we also deployed our framework
-		on videos from an entirely different surgical procedure, known as a robot-assisted partial nephrectomy (RAPN), in which a portion of a patient's kidney is removed due to the presence of cancerous tissue.
+		on videos from an entirely different surgical procedure, known as a <a id='overwhite' href="https://my.clevelandclinic.org/health/treatments/17445-robotic-partial-nephrectomy"><u>robot-assisted partial nephrectomy</u></a> (RAPN), in which a portion of a patient's kidney is removed due to the presence of cancerous tissue.
 		</p>
 		<p>
 		We show that our framework generalizes to unseen videos, surgeons, medical centres, and surgical procedures. This is evident by its strong performance (see below) across the board in all of these settings. 
@@ -248,6 +249,36 @@
 		As such, a surgeon can now better identify, and learn to avoid, problematic intra-operative surgical behaviour in the future.
 		</p>					
 
+		<h4>
+                Translational Impact
+                </h4>		
+		<h5>
+		How do our findings translate to impact?
+		</h5>	
+		<p>
+		Our findings provide the initial evidence in support of the eventual use of deep learning frameworks in the domain of surgery. 
+		To begin, the ability of our framework to generalize to videos across a wide range of settings (e.g., medical centres and surgical procedures) should instill surgeons with confidence as it pertains to its clinical deployment. 
+		Furthermore, our framework's ability to provide explainable results, by pinpointing temporal frames which it deems relevant to its prediction, has a threefold benefit. 
+		First, explainability can improve the trustworthiness of an AI framework, a critical pre-requisite for clinical adoption. 
+		Second, it allows for the provision of more targeted feedback to surgeons about their performance. 
+		This, in turn, would allow them to modulate such performance as a means to improve patient outcomes. 
+		Third, an element of explainability implies improved framework transparency and is viewed, by some, as contributing to the ethical deployment of AI models in a clinical setting. 
+		</p>
+				
+		<h4>
+                Moving Forward
+                </h4>		
+		<h5>
+		Where do we go from here?  
+		</h5>	
+		<p>
+		We see several worthwhile avenues to explore in the near future. One such avenue is the study of the degree of algorithmic bias exhibited by our proposed deep learning framework against surgeon cohorts. 
+		This is critical in this context of surgical feedback as a biased system can disadvantage certain surgeons (e.g., those from different age groups) and thus affect their ability to develop professionally. 
+		These considerations would ensure that the entire pipeline of surgeons from surgical residents to fellows and attendings are safely equipped to identify positive and negative behaviours in surgical procedures, 
+		can incorporate these discoveries into future surgeries, and ultimately improve patient outcomes. 
+		We hope the broader community joins us in this endeavour.
+		</p>
+				
 		<h4>
 		Acknowledgements
 		</h4>
