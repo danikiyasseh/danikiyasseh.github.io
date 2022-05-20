@@ -133,7 +133,7 @@
     </p>
                 
 		<div class="row">
-		    <img src="./images/active_learning.gif" style="width:100%">
+		    <img src="./images/active_learning.gif" style="width:60%">
 		</div>
                 
     <h4>
@@ -143,25 +143,27 @@
     How do current methods acquire unlabelled datapoints?
     </h5>
     <p>
-    
+    To acquire datapoints from a pool of unlabelled data, active learning methods rank these datapoints from most informative to least informative. This ranking system, which reflects the informativeness of a datapoints, 
+    is known as an acquisition function and is usually user-defined. One favourable acquisition function is Bayesian Active Learning by Disagreement (BALD), which 
     </p>
 				
     <h5>
     How do current methods annotate newly-acquired unlabelled datapoints?
     </h5>    
     <p>
-    
+    Current methods typically assume the presence of an ideal oracle (e.g., physician) who is capable of providing correct annotations for any and all of the acquired unlabelled datapoints. This assumption, however, is unlikely to hold 
+    within healthcare where physicians can either lack expertise for a particular task (generating incorrect annotations) or simply be unavailable (not providing annotations at all). 
     </p>
         
-		<h4>
+    <h4>
     Improving the Acquisition of Unlabelled Datapoints
     </h4>	
     <h5>
     How do we acquire more informative datapoints?
     </h5>  
-		<p>
-		
-		</p>
+	<p>
+
+	</p>
             
     <h4>
     Improving the Annotation of Newly-Acquired Unlabelled Datapoints
