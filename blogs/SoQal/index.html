@@ -1,0 +1,245 @@
+<!DOCTYPE HTML>
+<!--
+	Spectral by Pixelarity
+	pixelarity.com @pixelarity
+	License: pixelarity.com/license
+-->
+<html>
+	<head>
+		<link rel="icon" href="">
+		<title>Dani Kiyasseh | Blog - SoQal </title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<!--[if lte IE 8]><script src="assets/js/ie/html5shiv.js"></script><![endif]-->
+		<link rel="stylesheet" href="../../assets/css/main.css" />
+		<link rel="stylesheet" href="https://cdn.rawgit.com/jpswalsh/academicons/master/css/academicons.min.css">
+		<!--[if lte IE 8]><link rel="stylesheet" href="assets/css/ie8.css" /><![endif]-->
+		<!--[if lte IE 9]><link rel="stylesheet" href="assets/css/ie9.css" /><![endif]-->
+		<script type="text/x-mathjax-config">
+            MathJax.Hub.Config({
+                               tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}
+                               });
+        </script>
+        <script type="text/javascript"
+  			src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+		</script>
+		<script>
+		  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+		  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+		  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+		  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+		  ga('create', 'UA-97381584-1', 'auto');
+		  ga('send', 'pageview');
+
+		</script>
+
+		<style>
+		* {
+		  box-sizing: border-box;
+		}
+
+		.column {
+		  float: left;
+		  width: 50%;
+		  padding: 5px;
+		}
+
+		/* Clearfix (clear floats) */
+		.row::after {
+		  content: "";
+		  clear: both;
+		  display: table;
+		}
+		</style>
+		
+		
+
+	</head>
+  
+  
+	<body>
+
+		<!-- Page Wrapper -->
+			<div id="page-wrapper">
+
+				<!-- Header -->
+					<header id="header">
+						<h1><a href="../../index.html">Dani Kiyasseh</a></h1>
+						<nav id="nav">
+							<ul>
+								<li class="special">
+									<a href="#menu" class="menuToggle"><span>Menu</span></a>
+									<div id="menu">
+										<ul>
+											<li><a href="../../index.html">Home</a></li>
+											<li><a href="../../index.html#aboutme">About Me</a></li>
+											<li><a href="../../index.html#experience">Experience</a></li>
+											<li>&mdash;</li>
+											<li><a href="../../publications.html">Publications</a></li>
+											<li><a href="../index.html">Blog</a></li>
+											<li><a href="../../datasets.html">Datasets</a></li>											
+										</ul>
+									</div>
+								</li>
+							</ul>
+						</nav>
+					</header>
+
+	<!-- Main -->
+	<article id="main">
+		<section class="wrapper style5">
+
+			<div class="inner">
+			<h2>
+			<center>
+				SoQal: Selective Oracle Questioning for Consistency Based Active Learning of Cardiac Signals 
+			</center>
+			</h2>
+
+			<p>
+			<center>
+				Thursday, May 19th, 2022
+			</center>
+			</p>
+
+			<p>
+			<center>
+				Dani Kiyasseh
+			</center>
+			</p>
+
+		<p>
+		The healthcare industry now generates troves of data from distinct modalities on a daily basis. Such data modalities range from the micro of genomics, which capture information at the sub-cellular level, 
+    to the macro of physiological signals and medical images, which capture information at the organ level. Extracting clinically-meaningful insight from such data can be achieved via deep learning algorithms, which
+    are notoriously data-hungry (read: require abundant labelled data). Oftentimes, however, the rate with which this data are generated far exceeds the rate with which 
+    they can be realistically annotated by medical professionals. For example, in low-resource clinical settings, medical professionals may lack the necessary expertise or simply be unavailable to provide annotations. 
+    Conversely, in high-resource clinical settings, medical professionals are inundated by the sheer number of requests for annotations, exacerbating the increasingly-observed phenomenon of physician-burnout. As such, 
+    clinical settings are now commonly characterized by the presence of limited labelled data and abundant unlabelled data. One way to deal with this scenario is through active learning, as outlined next.
+		</p>
+                
+    <div class="row">
+		    <img src="./images/labelled_and_unlabelled_data.png" style="width:100%">
+		</div>
+        
+    <h4>
+    Introduction to Active Learning
+    </h4>
+    <p>
+    An active learning framework allows neural networks to achieve strong performance while simultaneously exploiting a labelled and unlabelled set of data and minimizing the annotation burden placed on an oracle 
+    (e.g., a physician). All such frameworks typically iterate over four main steps: 1) <i> train </i> - a neural network is trained on some existing labelled data, 2) <i> acquire </i> - the same network is tasked with 
+    acquiring unlabelled data points, 3) <i> label </i> - an oracle (e.g., physician) is tasked with labelling such acquired data points, and 4) <i> augment </i> - the neural network is trained on the existing and 
+    newly-labelled data points. Whereas previous work in the literature commonly focuses on either step 2 (acquisition) or step 3 (annotation), we modify both. 
+    </p>
+                
+		<div class="row">
+		    <img src="./images/active_learning.gif" style="width:100%">
+		</div>
+                
+    <h4>
+    Limitations of Existing Methods to Active Learning
+    </h4>
+    <h5>
+    How do current methods acquire unlabelled datapoints?
+    </h5>
+    <p>
+    
+    </p>
+				
+    <h5>
+    How do current methods annotate newly-acquired unlabelled datapoints?
+    </h5>    
+    <p>
+    
+    </p>
+        
+		<h4>
+    Improving the Acquisition of Unlabelled Datapoints
+    </h4>	
+    <h5>
+    How do we acquire more informative datapoints?
+    </h5>  
+		<p>
+		
+		</p>
+            
+    <h4>
+    Improving the Annotation of Newly-Acquired Unlabelled Datapoints
+    </h4>	
+    <h5>
+    How do we minimize the labelling burden placed on physicians?
+    </h5>  
+		<p>
+		
+		</p>
+
+    <h4>
+    Active Learning Scenario 1 - No Oracle
+    </h4>	 
+    <h5>
+    How does our framework perform in the absence of an oracle?
+    </h5>  
+		<p>
+		
+		</p>
+    
+    <h4>
+    Active Learning Scenario 2 - Noise-free Oracle
+    </h4>	 
+    <h5>
+    How does our framework perform in the presence of an ideal oracle?
+    </h5>  
+		<p>
+		
+		</p>
+        
+    <h4>
+    Active Learning Scenario 3 - Noisy Oracle
+    </h4>	 
+    <h5>
+    How does our framework perform in the presence of an oracle who somtimes provides incorrect annotations?
+    </h5>  
+		<p>
+		
+		</p>
+        
+        
+		<h4>
+    Moving Forward
+    </h4>		
+		<h5>
+		Where do we go from here?  
+		</h5>	
+		<p>
+		We see several worthwhile avenues to explore in the near future. 
+		</p>
+				
+		<h4>
+		Acknowledgements
+		</h4>
+		<p>  
+		We would also like to thank <a id='overwhite' href="https://www.youtube.com/watch?v=ZFkV6mwHhX0"><u>Wadih El Safi</u></a> for lending us his voice. 
+		</p>
+				
+		</br>
+							
+					</div>
+				</section>
+			</article>
+    
+		
+			</div>
+
+		<!-- Scripts -->
+			<script src="../../assets/js/jquery.min.js"></script>
+			<script src="../../assets/js/jquery.scrollex.min.js"></script>
+			<script src="../../assets/js/jquery.scrolly.min.js"></script>
+			<script src="../../assets/js/skel.min.js"></script>
+			<script src="../../assets/js/util.js"></script>
+			<!--[if lte IE 8]><script src="assets/js/ie/respond.min.js"></script><![endif]-->
+			<script src="../../assets/js/main.js"></script>
+				
+				
+  	</body>
+	
+</html>
