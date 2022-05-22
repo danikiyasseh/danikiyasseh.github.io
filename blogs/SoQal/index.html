@@ -108,6 +108,7 @@
 				Dani Kiyasseh
 			</center>
 			</p>
+			<hr>
 
 		<p>
 		The healthcare industry now generates troves of data from distinct modalities on a daily basis. Such data modalities range from the micro of genomics, which capture information at the sub-cellular level, 
@@ -131,8 +132,8 @@
     </h4>
     <p>
     An active learning framework allows neural networks to achieve strong performance while simultaneously exploiting a labelled and unlabelled set of data and minimizing the annotation burden placed on an oracle 
-    (e.g., a physician). All such frameworks typically iterate over four main steps: 1) <i> train </i> - a neural network is trained on some existing labelled data, 2) <i> acquire </i> - the same network is tasked with 
-    acquiring unlabelled data points, 3) <i> label </i> - an oracle (e.g., physician) is tasked with labelling such acquired data points, and 4) <i> augment </i> - the neural network is trained on the existing and 
+    (e.g., a physician). All such frameworks typically iterate over four main steps: 1) <i><b> train </b></i> - a neural network is trained on some existing labelled data, 2) <i><b> acquire </b></i> - the same network is tasked with 
+    acquiring unlabelled data points, 3) <i><b> label </b></i> - an oracle (e.g., physician) is tasked with labelling such acquired data points, and 4) <i><b> augment </b></i> - the neural network is trained on the existing and 
     newly-labelled data points. Whereas previous work in the literature commonly focuses on either step 2 (acquisition) or step 3 (annotation), we modify both. 
     </p>
                 
@@ -144,14 +145,14 @@
     Limitations of Existing Methods to Active Learning
     </h4>
     <h5>
-    How do current methods acquire unlabelled datapoints?
+    How does previous work acquire unlabelled datapoints?
     </h5>
     <p>
     To acquire datapoints from a pool of unlabelled data, active learning methods rank these datapoints from the most informative to the least informative. 
     Given datapoints from two distinct classes (see below), it is believed that datapoints which are closer to the decision boundary are more informative than those
     farther away from the boundary. Previous work quantifies this proximity to the decision boundary via Monte Carlo Dropout (MCD), which first perturbs the parameters  
     of a neural network to generate distinct decision boundaries, and identifies unlabelled datapoints whose network classification differs across the parameter perturbations. 
-    We show that if such parameter perturbations are misspecified (e.g. by being too small in magnitude), this approach can fail to acquire otherwise informative datapoints, thus
+    We show, however, that if such parameter perturbations are misspecified (e.g. by being too small in magnitude), this approach can fail to acquire otherwise informative datapoints, thus
     hindering the learning process.
     </p>
 				
@@ -160,10 +161,10 @@
 	</center>
 				
     <h5>
-    How do current methods annotate newly-acquired unlabelled datapoints?
+    How does previous work annotate newly-acquired unlabelled datapoints?
     </h5>    
     <p>
-    Current methods typically assume the presence of an ideal oracle (e.g., physician) who is capable of providing correct annotations for any and all of the acquired unlabelled datapoints. This assumption, however, is unlikely to hold 
+    Previous work typically assumes the presence of an ideal oracle (e.g., physician) who is capable of providing correct annotations for any and all of the acquired unlabelled datapoints. This assumption, however, is unlikely to hold 
     within healthcare where physicians can either lack expertise for a particular task (generating incorrect annotations) or simply be unavailable (not providing annotations at all). 
     </p>
         
@@ -174,7 +175,7 @@
     How do we acquire more informative datapoints?
     </h5>  
 	<p>
-	In order to overcome the limitations of Monte Carlo Dropout, we propose a family of consistency-based active learning frameworks. Whereas MCD perturbs neural network parameters to identify datapoints in proximity to 
+	In order to overcome the limitations of Monte Carlo Dropout, we propose, in our <a id='overwhite' href="https://arxiv.org/pdf/2004.09557.pdf"><u>ICML 2022 paper</u></a>, a family of consistency-based active learning frameworks. Whereas MCD perturbs neural network parameters to identify datapoints in proximity to 
 	the decision boundary, we perturb the input datapoints themselves (which we refer to as Monte Carlo Perturbations) or both the input datapoints and the network parameters (which we refer to as Bayesian Active Learning by Consistency). 
 	The motivation for doing so is twofold. First, the perturbation of input datapoints is more understandable than the perturbation of parameters, thus providing machine learning practitioners with increased control and interpretability over the applied perturbations.
 	Second, by perturbing both input datapoints and network parameters, we make it less likely to miss informative datapoints. 
@@ -198,7 +199,7 @@
 	</p>
 
 	<center>
-	    <img src="./images/soqal_pipeline.png" style="width:60%">
+	    <img src="./images/soqal_pipeline.png" style="width:50%">
 	</center>		
 				
     <h4>
@@ -214,7 +215,7 @@
 		</p>
     
 	<center>
-	    <img src="./images/no_oracle_results.png" style="width:60%">
+	    <img src="./images/no_oracle_results.png" style="width:40%">
 	</center>			
 				
     <h4>
@@ -225,12 +226,12 @@
     </h5>  
 		<p>
 		Assuming the presence of a noise-free oracle, we now explore the effect of selective oracle questioning methods. In the table below, we present the results of these experiments across all datasets when the network
-		is initially exposed to only 10% of the training data. We find that SoQal consistently outperforms S-response and epsilon-greedy across the first three datasets. 
+		is initially exposed to only 10% of the training data. We find that SoQal consistently outperforms several baseline methods, including S-response and epsilon-greedy across the first three datasets. 
 		Such a finding suggests that SoQal is well equipped to know <i>when</i> a label should be requested from an oracle.
 		</p>
     
 	<center>
-	    <img src="./images/oracle_results.png" style="width:60%">
+	    <img src="./images/oracle_results.png" style="width:40%">
 	</center>
 				
     <h4>
@@ -269,7 +270,7 @@
 		Acknowledgements
 		</h4>
 		<p>  
-		We would also like to thank <a id='overwhite' href="https://www.youtube.com/watch?v=ZFkV6mwHhX0"><u>Wadih El Safi</u></a> for lending us his voice. 
+		We would also like to thank <a id='overwhite' href="https://www.youtube.com/watch?v=XuF7IcZ2Zd8"><u>Melhem Barakat</u></a> for lending us his voice. 
 		</p>
 				
 		</br>
