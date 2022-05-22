@@ -181,7 +181,7 @@
 	</p>
             
 	<center>
-	    <img src="./images/acquisition.gif" style="width:60%">
+	    <img src="./images/acquisition.gif" style="width:60%"> 
 	</center>	
 				
     <h4>
@@ -193,12 +193,12 @@
 	<p>
 	Whereas previous work assumes that ideal oracles exist consistently throughout the learning process, we reduce our dependence on an oracle by dynamically determining whether, for each acquired unlabelled datapoint, to request a label
 	from an oracle or to provide a network-based annotation (also known as a pseudo-label). They key insight here is that we delegate what would ordinarily have been annotated by an oracle to the neural network itself (prediction network below). 
-	Such a decision to delegate is performed by the oracle selection network, who details are provided in the paper. 
+	Such a decision to delegate is performed by the oracle selection network, whose details are provided in the paper. 
 	In light of this selective process, we refer to this framework as selective oracle questioning in active learning (SoQal). 
 	</p>
 
 	<center>
-	    <img src="./images/socal_pipeline.png" style="width:60%">
+	    <img src="./images/soqal_pipeline.png" style="width:60%">
 	</center>		
 				
     <h4>
@@ -208,9 +208,15 @@
     How does our framework perform in the absence of an oracle?
     </h5>  
 		<p>
-		
+		We begin by exploring the performance of active learning frameworks without an oracle. Below, we illustrate the validation AUC of a network that is initially exposed to 30% of the labelled training data.
+		We find that a network which exploits our consistency-based framework (BALC) learns faster than, and outperforms, those which exploit the remaining acquisition functions. 
+		For example, BALC<sub>KLD</sub> and BALD<sub>MCD</sub> achieve AUC around 0.69 after 20 and 40 epochs of training, respectively, reflecting a two-fold increase in learning efficiency.
 		</p>
     
+	<center>
+	    <img src="./images/no_oracle_results.png" style="width:60%">
+	</center>			
+				
     <h4>
     Active Learning Scenario 2 - Noise-free Oracle
     </h4>	 
@@ -218,9 +224,15 @@
     How does our framework perform in the presence of an ideal oracle?
     </h5>  
 		<p>
-		
+		Assuming the presence of a noise-free oracle, we now explore the effect of selective oracle questioning methods. In the table below, we present the results of these experiments across all datasets when the network
+		is initially exposed to only 10% of the training data. We find that SoQal consistently outperforms S-response and epsilon-greedy across the first three datasets. 
+		Such a finding suggests that SoQal is well equipped to know <i>when</i> a label should be requested from an oracle.
 		</p>
-        
+    
+	<center>
+	    <img src="./images/oracle_results.png" style="width:60%">
+	</center>
+				
     <h4>
     Active Learning Scenario 3 - Noisy Oracle
     </h4>	 
@@ -228,9 +240,17 @@
     How does our framework perform in the presence of an oracle who somtimes provides incorrect annotations?
     </h5>  
 		<p>
-		
+		Building on the findings in the previous section, we now explore the performance of our oracle questioning methods with a <i>noisy</i> oracle. 
+		In the figure below, we illustrate the test AUC as a function of various types and levels of noise. 
+		We also present the performance with a <i>noise-free</i> oracle (horizontal dashed lines). 
+		We find that SoQal is more robust to a noisy oracle than epsilon-greedy and S-response. This is evident by the higher AUC of the former relative to the latter across different noise types and magnitudes. 
+		One hypothesis for this improved performance is that SoQal, by appropriately deciding when to not request a label from a noisy oracle, avoids an incorrect instance annotation, and thus allows the network to learn well.
 		</p>
         
+	<center>
+	    <img src="./images/noisy_oracle_results.png" style="width:60%">
+	</center>
+				
         
 		<h4>
     Moving Forward
@@ -239,7 +259,10 @@
 		Where do we go from here?  
 		</h5>	
 		<p>
-		We see several worthwhile avenues to explore in the near future. 
+		We see several worthwhile avenues to explore in the near future. SoQal assumed that the annotations provided by the oracle, when requested, are <i>consistently</i> reliable. However, an oracle (e.g., a physician) is likely to experience fatigue over time and exhibit undesired variability in annotation quality. 
+		Such oracle dynamics are not accounted for by our framework yet pose exciting opportunities for the future. Moreover, our framework assumed that, at most, a <i>single</i> oracle was available throughout the learning process. 
+		However, clinical settings are often characterized by the presence of multiple oracles (e.g., radiologists, cardiologists, oncologists) with different areas and levels of expertise. 
+		We hope the community considers incorporating these elements into an active learning framework which would prove quite valuable given the realistic nature of such a scenario.
 		</p>
 				
 		<h4>
