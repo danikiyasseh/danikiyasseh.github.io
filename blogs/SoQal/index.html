@@ -122,9 +122,9 @@
     clinical settings are now commonly characterized by the presence of limited labelled data and abundant unlabelled data. One way to deal with this scenario is through active learning, as outlined next.
 		</p>
                 
-    <div class="row">
-		    <img src="./images/labelled_and_unlabelled_data.png" style="width:100%">
-		</div>
+    <center>
+	<img src="./images/labelled_and_unlabelled_data.png" style="width:60%">
+    </center>
         
     <h4>
     Introduction to Active Learning
@@ -136,9 +136,9 @@
     newly-labelled data points. Whereas previous work in the literature commonly focuses on either step 2 (acquisition) or step 3 (annotation), we modify both. 
     </p>
                 
-		<div class="row">
-		    <img src="./images/active_learning.gif" style="width:60%">
-		</div>
+	<center>
+	    <img src="./images/active_learning.gif" style="width:60%">
+	</center>
                 
     <h4>
     Limitations of Existing Methods to Active Learning
@@ -147,9 +147,17 @@
     How do current methods acquire unlabelled datapoints?
     </h5>
     <p>
-    To acquire datapoints from a pool of unlabelled data, active learning methods rank these datapoints from most informative to least informative. This ranking system, which reflects the informativeness of a datapoints, 
-    is known as an acquisition function and is usually user-defined. One favourable acquisition function is Bayesian Active Learning by Disagreement (BALD), which 
+    To acquire datapoints from a pool of unlabelled data, active learning methods rank these datapoints from the most informative to the least informative. 
+    Given datapoints from two distinct classes (see below), it is believed that datapoints which are closer to the decision boundary are more informative than those
+    farther away from the boundary. Previous work quantifies this proximity to the decision boundary via Monte Carlo Dropout (MCD), which first perturbs the parameters  
+    of a neural network to generate distinct decision boundaries, and identifies unlabelled datapoints whose network classification differs across the parameter perturbations. 
+    We show that if such parameter perturbations are misspecified (e.g. by being too small in magnitude), this approach can fail to acquire otherwise informative datapoints, thus
+    hindering the learning process.
     </p>
+				
+  	<center>
+	    <img src="./images/MCD.gif" style="width:60%">
+	</center>
 				
     <h5>
     How do current methods annotate newly-acquired unlabelled datapoints?
@@ -166,19 +174,33 @@
     How do we acquire more informative datapoints?
     </h5>  
 	<p>
-
+	In order to overcome the limitations of Monte Carlo Dropout, we propose a family of consistency-based active learning frameworks. Whereas MCD perturbs neural network parameters to identify datapoints in proximity to 
+	the decision boundary, we perturb the input datapoints themselves (which we refer to as Monte Carlo Perturbations) or both the input datapoints and the network parameters (which we refer to as Bayesian Active Learning by Consistency). 
+	The motivation for doing so is twofold. First, the perturbation of input datapoints is more understandable than the perturbation of parameters, thus providing machine learning practitioners with increased control and interpretability over the applied perturbations.
+	Second, by perturbing both input datapoints and network parameters, we make it less likely to miss informative datapoints. 
 	</p>
             
+	<center>
+	    <img src="./images/acquisition.gif" style="width:60%">
+	</center>	
+				
     <h4>
     Improving the Annotation of Newly-Acquired Unlabelled Datapoints
     </h4>	
     <h5>
     How do we minimize the labelling burden placed on physicians?
     </h5>  
-		<p>
-		
-		</p>
+	<p>
+	Whereas previous work assumes that ideal oracles exist consistently throughout the learning process, we reduce our dependence on an oracle by dynamically determining whether, for each acquired unlabelled datapoint, to request a label
+	from an oracle or to provide a network-based annotation (also known as a pseudo-label). They key insight here is that we delegate what would ordinarily have been annotated by an oracle to the neural network itself (prediction network below). 
+	Such a decision to delegate is performed by the oracle selection network, who details are provided in the paper. 
+	In light of this selective process, we refer to this framework as selective oracle questioning in active learning (SoQal). 
+	</p>
 
+	<center>
+	    <img src="./images/socal_pipeline.png" style="width:60%">
+	</center>		
+				
     <h4>
     Active Learning Scenario 1 - No Oracle
     </h4>	 
