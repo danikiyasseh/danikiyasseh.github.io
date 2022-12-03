@@ -1640,6 +1640,16 @@
 		}
 
 
+		@media screen and (max-width: 2580px) {
+
+			header.major img {
+				display: block;
+				margin: 0 auto;
+				width: 40%;
+			}
+
+		}
+
 		@media screen and (max-width: 2280px) {
 
 			header.major img {
