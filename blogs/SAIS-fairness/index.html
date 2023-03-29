@@ -116,7 +116,7 @@
         The activity of a surgeon during surgery can directly impact patient outcomes. 
         To assess the quality of this activity reliably and at scale, recent studies have leveraged emerging technologies suchh as artificial intelligence (AI). 
         For example, in a study recently published in <a href="https://www.nature.com/articles/s41551-023-01010-8" style="color:#0e8ec9;"><u>Nature Biomedical Engineering</u></a>, we presented an AI system that can assess the skill-level of surgical activity based on a video of such activity. 
-        This system, which we refer to as SAIS, can be used to by <a href="https://www.facs.org/for-patients/patient-resources/qualifications/" style="color:#0e8ec9;"><u>medical boards to credential surgeons</u></a> and by hospitals to grant surgeons the privilege to operate on patients. 
+        This system, which we refer to as SAIS, can be used by <a href="https://www.facs.org/for-patients/patient-resources/qualifications/" style="color:#0e8ec9;"><u>medical boards to credential surgeons</u></a> and by hospitals to grant surgeons the privilege to operate on patients. 
         </p>
         
     <h4>
@@ -153,7 +153,10 @@
         We trained SAIS to assess the skill-level (low vs. high skill) of two distinct surgical activities: needle handling and needle driving. 
         These activities are often performed in succession by a surgeon while <a href="https://emedicine.medscape.com/article/1824895-overview" style="color:#0e8ec9;"><u>suturing</u></a> (read: joining tissue).
         Specifically, to probe SAIS' ability to generalize (read: perform well) to real-world data from different settings, we trained it on data exclusively from the University of Southern California (USC) and deployed it on previously-unseen videos from USC and from completely different hospitals: St. Antonius Hospital, Germany (SAH) and Houston Methodist Hospital, USA (HMH).
-        To assess the reliability of skill assessments, we look at their negative predictive value (NPV): the proportion of AI-based low-skill assessments which are in fact low-skill.
+	</p>
+	
+	<p>
+	To assess the reliability of skill assessments, we look at their negative predictive value (NPV): the proportion of AI-based low-skill assessments which are in fact low-skill.
         A discrepancy in the negative predictive value across subcohorts implies that surgeon performance is erroneously down-rated by the AI system, and would therefore be unfairly prevented from operating on patients.   
         </p>
         
@@ -184,7 +187,8 @@
         <p>
         We show that TWIX, in some cases, drastically mitigates the underskilling bias. 
         This is evident by the improvement in the worst-case negative predictive value (read: the reliability of skill assessments improves for the previously-disadvantaged subcohort).
-        For example, at USC, the worst-case NPV improves by up to 32%.  
+        For example, at USC, the worst-case NPV improves by up to 10%. 
+	We also demonstrate that TWIX simultaneously mitigates the overskillig bias (results not shown).
         </p>
 			
 		<center>
