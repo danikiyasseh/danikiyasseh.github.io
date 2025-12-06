@@ -10,11 +10,8 @@
 		<title>Dani Kiyasseh | Publications </title>
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1" />
-		<!--[if lte IE 8]><script src="assets/js/ie/html5shiv.js"></script><![endif]-->
 		<link rel="stylesheet" href="assets/css/main.css" />
 		<link rel="stylesheet" href="https://cdn.rawgit.com/jpswalsh/academicons/master/css/academicons.min.css">
-		<!--[if lte IE 8]><link rel="stylesheet" href="assets/css/ie8.css" /><![endif]-->
-		<!--[if lte IE 9]><link rel="stylesheet" href="assets/css/ie9.css" /><![endif]-->
 		<script type="text/x-mathjax-config">
             MathJax.Hub.Config({
                                tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}
@@ -47,7 +44,7 @@
 		
 
 	</head>
-	<body>
+	<body class="landing">
 
 		<!-- Page Wrapper -->
 			<div id="page-wrapper">
@@ -62,12 +59,9 @@
 									<div id="menu">
 										<ul>
 											<li><a href="index.html">Home</a></li>
-											<li><a href="index.html#aboutme">About Me</a></li>
 											<li><a href="index.html#experience">Experience</a></li>
-											<li>&mdash;</li>
 											<li><a href="./publications.html">Publications</a></li>
 											<li><a href="./blogs/index.html">Blog</a></li>															 											
-											<li><a href="./datasets.html">Datasets</a></li>											
 										</ul>
 									</div>
 								</li>
@@ -77,7 +71,7 @@
 
 				<!-- Main -->
 					<article id="main">
-						<section class="wrapper style5">
+						<section class="wrapper style1">
 
 							<div class="inner">
 								<h2>
@@ -88,41 +82,57 @@
 								
 								<p>
 								<center>
-									You can find below my experience across academia and industry listed in reverse chronological order. 
+									My journey has taken me through academic institutions, large-scale companies, and early-stage startups.
 								</center>
 								</p>
-								
-								<p>  
-								</p>
-
-							    </br>
-							
-							</div>
-						</section>
-					</article>
-
-			<!-- Experience -->
+									
+								</div>
+							</section>
+						</article>
 			    <section id="experience" class="wrapper alt style2">
 
 					<section class="spotlight">
-			        		<div class="image"><img src="images/postdoc_usc_final_day.jpg" alt="Ox" /></div><div class="content">
-			        		<h2><a href="https://www.cms.caltech.edu/">Caltech</a></h2>
- 						<h1>Can we quantify the core elements of surgery?</h1>
+						<div class="image"><img src="images/cedars_sinai.jpg" alt="Cedars Sinai" /></div><div class="content">
+						<h2><a href="https://www.cedars-sinai.org/">Cedars Sinai</a></h2>
+						<!-- <h1>Can we create surgical perception models?</h1> -->
 						<p style="text-align:left;"> 
-						 As a postdoctoral scholar, I designed deep learning algorithms that exploit intraoperative videos to quantify the core elements of surgery (think: what and how surgery is performed). 
-						 In doing so, we can provide surgeons with feedback about their performance as a means to modulate their behaviour.
+						I was a research scientist (faculty track) at Cedars Sinai, 
+						where I wrote the AI strategy for a successful $4M NIH R01 grant 
+						focused on developing video-based AI models to provide surgeons with performance feedback. 
 						</p>
-			        		</div>
+					</section>
+
+					<section class="spotlight">
+						<div class="image"><img src="images/vicarious_surgical.png" alt="Vicarious Surgical" /></div><div class="content">
+						<h2><a href="https://vicarioussurgical.com">Vicarious Surgical</a></h2>
+						<h1>Can we create surgical perception models?</h1>
+						<p style="text-align:left;"> 
+						As a senior machine learning engineer, I was responsible for developing and deploying perception models for surgical robots.
+						This included segmenting critical structures and estimating the depth of soft tissue from surgical videos.
+						</p>
+					</section>
+
+					<section class="spotlight">
+						<div class="image"><img src="images/postdoc_usc_final_day.jpg" alt="Ox" /></div>
+						
+						<div class="content">
+							<h2><a href="https://www.cms.caltech.edu/">Caltech</a></h2>
+							<h1>Can we quantify surgery from videos?</h1>
+								<p style="text-align:left;"> 
+								As a postdoctoral scholar, I developed deep learning models to identify surgical activity from videos. 
+								This research landed on the cover of <a href="https://www.nature.com/articles/s41551-023-01010-8">Nature Biomedical Engineering</a>.
+								</p>
+						</div>
 			        	</section>
 										   
 										   
 					<section class="spotlight">
 			        		<div class="image"><img src="images/flatiron.jpg" alt="Ox" /></div><div class="content">
 			        		<h2><a href="https://flatiron.com/">Flatiron Health</a></h2>
- 						<h1>Can we reliably infer clinical variables that are missing?</h1>
+ 						<h1>Can we infer missing clinical variables?</h1>
 						<p style="text-align:left;"> 
-						 In the summer of 2021, I interned at Flatiron Health where I designed a natural language processing system that infers a clinical variable based on oncology patient visits.
-						 In the process, I also developed a framework for evaluating machine learning models in the absence of ground-truth labels.
+						 As an intern at Flatiron Health, I designed a natural language processing system that infers a clinical variable from oncology patient visits.
+						 Our work was published in <a href="https://www.nature.com/articles/s41467-024-46000-9">Nature Communications</a>.
 						</p>
 			        		</div>
 			        	</section>
@@ -141,10 +151,10 @@
 			        	<section class="spotlight">
 			        		<div class="image"><img src="images/merck.jpg" alt="Merck" /></div><div class="content">
 							<h2><a href="https://www.merck.com/">Merck & Co.</a></h2>
-							<h1>Can we delineate cardiac structures more efficiently?</h1>
+							<h1>Can we delineate cardiac structures?</h1>
 							<p style="text-align:left;"> 
-							In the summer of 2020, I was fortunate to work alongside <a href="https://scholar.google.com/citations?user=G3qBmWIAAAAJ&hl=en">Antong Chen</a> at Merck & Co. where I designed a meta-learning framework that leverages cardiac MRI data across medical centres
-							in order to delineate the structures of the heart (segmentation) in a data-efficient manner. Our work can be found <a href="https://link.springer.com/chapter/10.1007/978-3-030-87196-3_2">here</a>.
+							I was fortunate to work alongside <a href="https://scholar.google.com/citations?user=G3qBmWIAAAAJ&hl=en">Antong Chen</a> where I designed a meta-learning framework 
+							to delineate the structures of the heart in a data-efficient manner. Our work was published in <a href="https://link.springer.com/chapter/10.1007/978-3-030-87196-3_2">MICCAI 2021</a>.
 							</p>
 						</div>
 			        	</section>
@@ -196,17 +206,13 @@
 			</section>
 		
 
-				<!-- Footer -->
-					<footer id="footer">
-						<ul class="icons">
-							<li><a href="https://www.linkedin.com/in/danikiyasseh/" class="icon fa-linkedin"><span class="label">LinkedIn</span></a></li>
-							<li><a href="https://github.com/danikiyasseh" class="icon fa-github"><span class="label">Github></span></a></li>
-							<li><a href="mailto:danikiy@hotmail.com" class="icon fa-envelope-o"><span class="label">Email</span></a></li>
-						</ul>
-						<!-- <ul class="copyright">
-							<li>&copy; Dani Kiyasseh</li>
-						</ul> -->
-					</footer>
+				<footer id="footer">
+					<ul class="icons">
+						<li><a href="https://www.linkedin.com/in/danikiyasseh/" class="icon fa-linkedin"><span class="label">LinkedIn</span></a></li>
+						<li><a href="https://github.com/danikiyasseh" class="icon fa-github"><span class="label">Github></span></a></li>
+						<li><a href="mailto:danikiy@hotmail.com" class="icon fa-envelope-o"><span class="label">Email</span></a></li>
+					</ul>
+				</footer>
 
 			</div>
 
